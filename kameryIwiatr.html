@@ -18,9 +18,24 @@
             gap: 5px;
             justify-content: stretch;
         }
+		#content {
+			width: 100%;
+		}
+        @media screen and (max-width: 900px) {
+            #content {
+				width: 900px;
+			}
+        }
     </style>
 </head>
 <body>
+    <script>
+        function camChange(id, num, name) {
+            document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
+            document.getElementById(id == 1 ? "onet" : "twot").textContent = name + ":";
+        }
+    </script>
+	<div id="content">
     <div id="oneb">
         <button onclick="camChange(1, 7,'Chałupy')">Chałupy</button>
         <button onclick="camChange(1, 20,'Jastarnia')">Jastarnia</button>
@@ -42,11 +57,6 @@
     <iframe width="100%" height="600px" src="https://embed.windy.com/embed2.html?lat=54.660&lon=18.657&detailLat=54.696&detailLon=18.672&width=&height=500&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"></iframe>
     <h2>Rewa:</h2>
     <iframe width="100%" height="600px" src="https://g0.ipcamlive.com/player/player.php?alias=kamerarewa"/>
-    <script>
-        function camChange(id, num, name) {
-            document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
-            document.getElementById(id == 1 ? "onet" : "twot").textContent = name + ":";
-        }
-    </script>
+	</div>
 </body>
 </html>
