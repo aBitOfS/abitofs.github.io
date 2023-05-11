@@ -10,6 +10,7 @@
 			}
 			body > div {
 				padding: 3px 20px;
+				margin: 0px;
 			}
 			a {
 				text-decoration: none;
@@ -17,6 +18,7 @@
 				color: #055cb3;
 			}
 			#header {
+				box-sizing: border-box;
 				margin: 0px;
 				width: 100%;
 				background-color: #67a0d6;
@@ -29,7 +31,7 @@
 				font-style: none;
 			}
 			#content {
-				
+				background-color: white;
 			}
 			#footer {
 				
@@ -37,7 +39,7 @@
 			@media screen and (min-width: 1500px) {
 				body > div {
 					width: 1500px;
-					margin: 0 auto;
+					padding: 0 auto;
 				}
 			}
 		</style>
@@ -46,10 +48,12 @@
 		<div id="header">
 			<div>Strona główna</div>
 			<div><a href="kamery.html">Kamery</a></div>
+			<div><a href="games.html">Gry</a></div>
 		</div>
 		<div id="content">
 			<h3>Inne strony:</h3>
 			<a href="kamery.html">link do strony z kamerami i wiatrem</a>
+			<a href="games.html">link do strony z grami</a>
 		</div>
 		<div id="footer">
 			<img width="10%" src="Made with a bit of S.png">
