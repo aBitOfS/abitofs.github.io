@@ -18,15 +18,19 @@
 				color: #055cb3;
 			}
 			#header {
-				box-sizing: border-box;
 				margin: 0px;
+                box-sizing: border-box;
 				width: 100%;
 				background-color: #67a0d6;
-				display: flex;
 				color: #055cb3;
 				font-size: 40px;
-				gap: 20px;
 			}
+            #header > div {
+				margin: 0px;
+				width: 100%;
+				display: flex;
+				gap: 20px;
+            }
 			#header a {
 				font-style: none;
 			}
@@ -34,29 +38,39 @@
 				background-color: white;
 			}
 			#footer {
-				
+				background-color: #667a91;
 			}
 			@media screen and (min-width: 1500px) {
-				body > div {
+				#content {
 					width: 1500px;
-					padding: 0 auto;
+					margin: 0 auto;
 				}
+                #header > div {
+					width: 1500px;
+					margin: 0 auto;
+                }
+                #footer {
+					width: 1500px;
+					margin: 0 auto;
+                }
 			}
 		</style>
 	</head>
 	<body>
 		<div id="header">
-			<div>Strona główna</div>
-			<div><a href="kamery.html">Kamery</a></div>
-			<div><a href="games.html">Gry</a></div>
+        	<div>
+				<div>Strona główna</div>
+				<div><a href="kamery.html">Kamery</a></div>
+				<div><a href="games.html">Gry</a></div>
+            </div>
 		</div>
 		<div id="content">
 			<h3>Inne strony:</h3>
-			<a href="kamery.html">link do strony z kamerami i wiatrem</a>
-			<a href="games.html">link do strony z grami</a>
+			<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
+			<p><a href="games.html">link do strony z grami</a></p>
 		</div>
 		<div id="footer">
-			<img width="10%" src="Made with a bit of S.png">
+			<img width="10%" src="Made with a bit of S.png"><br><br><br>
 		</div>
 	</body>
 </html>
