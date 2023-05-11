@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disco</title>
+    <meta charset="utf-8">
+    <style>
+        #options {
+            width: 600px;
+            padding: 20px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            background-color: whitesmoke;
+        }
+        button {
+            background-color: white;
+            border: 2px solid grey;
+            border-radius: 10px
+        }
+        button:hover {
+            background-color: whitesmoke;
+        }
+        button:active {
+            background-color: ghostwhite;
+        }
+        #toclick {
+            position:fixed;
+            top:0px;
+            left: 0px;
+            width:100%;
+            height:100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="options">
+        <h3>Welcome in disco webpage!</h3>
+        <p>We're glad to introduce you to feel like at the real party!</p>
+        
+        <p>Chose right speed:</p>
+        <p><input id="speed" type="range" oninput="changeSpeed()" min="-10" max="-1" value="-1">Speed: <span id="speedValue">10</span/s</p>
+        
+        <p>Chose the colors:</p>
+        <span id="insertColors"><input id="color" type="color"></span><button onclick="addColor()" style="width: 10%; height: 30px;">+</button>
+
+        <p style="text-align: center;">
+        <button style="width:90%; height: 50px" onclick="startDisco(false)">
+            Start your own disco!</button></p>
+        
+        <p style="text-align: center;">or<br><br>
+            
+        <button style="width:90%; height: 50px" onclick="startDisco(true)">
+            Start random disco! </button></p>
+        
+        <p>Click <b>F11</b> for better resuilts!</p>
+    </div>
+    <div id="toclick"></div>
+    <script>
+        var working = false;
+        var speed = 1;
+        var time = 0;
+        var type = false;
+        var activeColor = -1;
+        var opcje =  document.getElementById("options");
+        var speedrang = document.getElementById("speed");
+        var speedtext = document.getElementById("speedValue");
+        var colors = [document.getElementById("color")];
+        var insertColors = document.getElementById("insertColors");
+        
+        document.getElementById("toclick").addEventListener("mousedown",clickclick);
+        //Disco
+        function startDisco(typ) {
+            working = true;
+            type = typ;
+            opcje.style.marginTop = "-10000px";
+        }
+        function disco() {
+            time++
+            if (working && time >= speed)
+            {
+                time = 0;
+                if (type)
+                {
+                    document.body.style.backgroundColor = "rgb("+getRandomColor()+","+
+                    getRandomColor()+","+getRandomColor()+")";
+                }
+                else
+                {
+                    activeColor++;
+                    document.body.style.backgroundColor = colors[activeColor%colors.length].value;
+                }
+            }
+        }
+        //Disco Parameters
+        function changeSpeed() {
+            speed = -speedrang.value;
+            speedtext.textContent = Math.floor(1000/speed)/100;
+        }
+        function addColor() {
+            var toAdd = document.createElement("input");
+            toAdd.type = "color";
+            colors.push(toAdd);
+            insertColors.appendChild(toAdd);
+        }
+        //For good working
+        function getRandomColor() {
+            return Math.floor(Math.random() * 255);
+        }
+        function clickclick() {
+            if (working)
+            {
+                working = false;
+                opcje.style.marginTop = "20px";
+            }
+        }
+        window.setInterval(disco,100);
+    </script>
+</body>
+</html>
