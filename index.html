@@ -5,10 +5,10 @@
 		<meta charset="utf-8"/>
 		<style>
 			body {
-				background-color: #adc4db;
 				margin: 0px;
+				background-color: #667a91;
 			}
-			body > div {
+			body > div > div{
 				padding: 3px 20px;
 				margin: 0px;
 			}
@@ -19,44 +19,46 @@
 			}
 			#header {
 				margin: 0px;
-            	box-sizing: border-box;
+            			box-sizing: border-box;
 				width: 100%;
-				background-color: #67a0d6;
-				color: #055cb3;
+				background-color: #1870c4;
+				color: white;
 				font-size: 40px;
 			}
-            #header > div {
+            		#header > div {
 				margin: 0px;
 				width: 100%;
 				display: flex;
 				gap: 20px;
-            }
+            		}
 			#header a {
 				font-style: none;
+				color: white
 			}
 			#content {
-				background-color: white;
+				width: 100%;
+				background-color: #adc4db;
 			}
-			#footer {
-				background-color: #667a91;
+			#content > div {
+				background-color: #bfd0e0;
 			}
 			#footer > div {
 				margin: 0px;
 				width: 100%;
 			}
-			@media screen and (min-width: 1500px) {
-				#content {
-					width: 1500px;
+			@media screen and (min-width: 1200px) {
+				#content > div {
+					width: 1200px;
 					margin: 0 auto;
 				}
-                #header > div {
-					width: 1500px;
+                		#header > div {
+					width: 1200px;
 					margin: 0 auto;
-                }
-                #footer > div {
-					width: 1500px;
+                		}
+                		#footer > div {
+					width: 1200px;
 					margin: 0 auto;
-                }
+                		}
 			}
 		</style>
 	</head>
@@ -69,21 +71,24 @@
             </div>
 		</div>
 		<div id="content">
-			<h3>Inne strony:</h3>
-			<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
-			<p><a href="games.html">link do strony z grami</a></p>
-			<p><a href="Szum.html">rolkaszumi dla taty</a></p>
-			<h2>Jakaś treść</h2>
-			<p>Coś tu piszę, żeby pisać</p>
-			<p>Może jakieś złote myśli</p>
-			<h5>Złote myśli</h5>
-			<ol>
-				<li>Spiesz się kiedy możesz, żeby zwolnić kiedy musisz</li>
-				<li>Sport to zdrowie, każdy lekarz Ci to powie</li>
-			</ol>
-			<p>Jakieś zdjęcie</p>
-			<img src="https://info.elblag.pl/images/artykuly-glowne/d/info.elblag.pl-58839-quotCzy-znajda-sie-jakies.jpg" width=20%>
-			<p>nie może być przecież za duże</p>
+			<div>
+				<h3>Inne strony:</h3>
+				<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
+				<p><a href="games.html">link do strony z grami</a></p>
+				<p><a href="Szum.html">rolkaszumi dla taty</a></p>
+				<p><a href="Disco.html">link do DISCO</a></p>
+				<h2>Jakaś treść</h2>
+				<p>Coś tu piszę, żeby pisać</p>
+				<p>Może jakieś złote myśli</p>
+				<h5>Złote myśli</h5>
+				<ol>
+					<li>Spiesz się kiedy możesz, żeby zwolnić kiedy musisz</li>
+					<li>Sport to zdrowie, każdy lekarz Ci to powie</li>
+				</ol>
+				<p>Jakieś zdjęcie</p>
+				<img src="https://info.elblag.pl/images/artykuly-glowne/d/info.elblag.pl-58839-quotCzy-znajda-sie-jakies.jpg" width=20%>
+				<p>nie może być przecież za duże</p>
+			</div>
 		</div>
 		<div id="footer">
 			<div>
