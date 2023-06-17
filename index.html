@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl-pl">
 	<head>
@@ -30,6 +31,7 @@
 				width: 100%;
 				display: flex;
 				gap: 20px;
+				box-sizing: border-box;
             		}
 			#header a {
 				font-style: none;
@@ -39,13 +41,23 @@
 				width: 100%;
 				background-color: #adc4db;
 			}
-			#content > div {
+			#text, #links {
 				background-color: #bfd0e0;
+				box-sizing: border-box;
+				padding: 10px;
 			}
 			#footer > div {
 				margin: 0px;
 				width: 100%;
+				box-sizing: border-box;
 			}
+			#links {
+				float: right;
+				width: 25%;
+			}
+#text {
+width: 70%
+}
 			@media screen and (min-width: 1200px) {
 				#content > div {
 					width: 1200px;
@@ -71,24 +83,26 @@
             </div>
 		</div>
 		<div id="content">
-			<div>
+<div>
+			<div id="links">
 				<h3>Inne strony:</h3>
 				<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
 				<p><a href="games.html">link do strony z grami</a></p>
 				<p><a href="Szum.html">rolkaszumi dla taty</a></p>
 				<p><a href="Disco.html">link do DISCO</a></p>
-				<h2>Jakaś treść</h2>
-				<p>Coś tu piszę, żeby pisać</p>
-				<p>Może jakieś złote myśli</p>
-				<h5>Złote myśli</h5>
-				<ol>
-					<li>Spiesz się kiedy możesz, żeby zwolnić kiedy musisz</li>
-					<li>Sport to zdrowie, każdy lekarz Ci to powie</li>
-				</ol>
-				<p>Jakieś zdjęcie</p>
-				<img src="https://info.elblag.pl/images/artykuly-glowne/d/info.elblag.pl-58839-quotCzy-znajda-sie-jakies.jpg" width=20%>
-				<p>nie może być przecież za duże</p>
 			</div>
+			<div id="text">
+<h2>Lorem ipsum dolor sit amet,</h2><p>consectetur adipiscing elit. Mauris maximus tortor sapien, posuere semper lectus consequat in. Maecenas eleifend lacinia tincidunt. Aliquam sit amet turpis metus. Aliquam a aliquam nisi, ut semper tellus. Pellentesque sit amet ex ultrices, hendrerit neque at, iaculis arcu. Aenean sit amet mollis sapien. Nulla facilisi. Praesent est purus, sagittis sed ex nec, bibendum facilisis sapien. Phasellus venenatis tortor id venenatis accumsan. Sed sed finibus augue, eu vestibulum est. Mauris magna lacus, vehicula ac est ac, egestas lobortis nulla. Sed non ullamcorper sem. Cras commodo, sapien et sodales imperdiet, est mauris hendrerit urna, in sodales ex turpis ac magna. Nunc a nibh rutrum, aliquet erat sed, posuere massa.</p>
+
+<h3>Quisque gravida arcu ac augue pharetra,</h3><p>vel consequat arcu lobortis. Vestibulum pellentesque pharetra ligula, ut posuere ipsum ornare eu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut condimentum, leo eget feugiat vehicula, lorem nisi condimentum dolor, vel vehicula nulla lectus eu erat. Proin ullamcorper mollis tincidunt. Donec vel neque feugiat leo aliquam fringilla. Praesent malesuada tellus quis mi eleifend, quis molestie mi sollicitudin. Duis vel ligula fringilla, fringilla ipsum vitae, accumsan tellus. Sed a nibh eu dui bibendum tincidunt. Aliquam sollicitudin nulla eu eros scelerisque, non aliquam felis tristique. Aliquam erat volutpat. Cras a ipsum gravida, finibus erat eu, sollicitudin quam. Maecenas a fringilla ex, non maximus ipsum. Integer ullamcorper porttitor libero, non convallis urna. Aliquam commodo dapibus erat sed tincidunt. Proin dignissim, arcu accumsan feugiat auctor, urna tortor feugiat metus, eget tristique tortor felis sit amet sem.</p>
+
+<h3>Cras nec tortor quis ligula aliquet egestas id non diam.</h3><p>Nunc aliquet consectetur justo, in venenatis ipsum varius vitae. Curabitur pulvinar dignissim purus, venenatis gravida magna suscipit eu. Morbi imperdiet aliquet nisi, non pharetra dui fringilla in. Sed dui ipsum, tincidunt vitae leo vulputate, aliquet ultrices turpis. Pellentesque nisi sapien, laoreet id facilisis non, convallis sit amet metus. Suspendisse suscipit at nulla nec hendrerit. Mauris rhoncus ultrices augue, et sagittis nulla auctor iaculis. Donec volutpat felis non cursus gravida. Ut auctor id risus et interdum. Ut ut finibus nibh, nec sollicitudin orci. Nam vel massa feugiat sem scelerisque placerat.</p>
+
+<h3>Nam at vulputate leo.</h3><p>Proin fermentum tristique porttitor. Ut vulputate, magna nec mattis condimentum, ipsum justo molestie lectus, non consectetur nisi felis id neque. Nam molestie nisi id lectus tincidunt fermentum. Quisque vestibulum commodo leo, vitae auctor nisi elementum quis. Quisque tincidunt feugiat ex eget faucibus. Praesent sed nulla commodo, gravida nunc et, tempus erat.</p>
+
+<h3>Vestibulum ut vehicula sapien.</h3><p>Ut imperdiet, risus a laoreet molestie, neque lectus pharetra massa, non dictum felis odio nec quam. Mauris quis volutpat nulla, ut lobortis sapien. Morbi id pulvinar mi, eget gravida ligula. Vivamus non laoreet purus. Sed id tortor interdum, porttitor felis ac, fermentum erat. Integer mollis lectus nibh, at ornare purus suscipit ut. Etiam aliquam lorem leo, accumsan blandit erat tempor ut. Morbi at mauris at velit sodales elementum vitae eget risus. Vestibulum pulvinar imperdiet euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam porta tortor diam, et ornare dolor ultricies et. Cras in massa et eros faucibus efficitur.</p>
+			</div>
+</div>
 		</div>
 		<div id="footer">
 			<div>
