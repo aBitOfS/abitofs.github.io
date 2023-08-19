@@ -3,45 +3,64 @@
 	<head>
 		<title>Strona główna</title>
 		<meta charset="utf-8"/>
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
 		<style>
 			body {
 				margin: 0px;
 				background-color: #667a91;
+                font-family: Calibri, sans-serif;
 			}
 			body > div > div{
 				padding: 3px 20px;
 				margin: 0px;
 			}
+            h1, h2, h3, h4 {
+				color: #055cb3;
+                font-weight: bold;
+            }
 			a {
 				text-decoration: none;
-				font-style: italic;
-				color: #055cb3;
+                font-family: Comfortaa;
+				font-style: normal;
+				color: #043f7a;
 			}
 			#header {
 				margin: 0px;
-            			box-sizing: border-box;
+                font-family: Comfortaa;
+            	box-sizing: border-box;
 				width: 100%;
+                height: 70px;
 				background-color: #1870c4;
 				color: white;
-				font-size: 40px;
+				font-size: 30px;
+                padding: 10px 10px 20px 10px;
 			}
-            		#header > div {
-				margin: 0px;
-				width: 100%;
-				display: flex;
-				gap: 20px;
-            		}
-			#header a {
-				font-style: none;
-				color: white
-			}
+            	#header > div {
+    				margin: 0px;
+    				display: flex;
+    				gap: 30px;
+        		}
+    			#header a {
+    				font-style: none;
+    				color: white;
+    			}
 			#content {
+                box-sizing: border-box;
 				width: 100%;
-				background-color: #adc4db;
+                
+				background-color: #bbcdde;
+                border: 0px;
+                border-radius: 10px;
 			}
-			#content > div {
-				background-color: #bfd0e0;
-			}
+            #all {
+                margin-top: -10px;
+                height: calc(100dvh - 60px);
+                overflow:auto;
+                width: 100%;
+            }
+            #footer {
+                padding-top: 20px;
+            }
 			#footer > div {
 				margin: 0px;
 				width: 100%;
@@ -58,7 +77,7 @@
                 		#footer > div {
 					width: 1200px;
 					margin: 0 auto;
-                		}
+                	}
 			}
 		</style>
 	</head>
@@ -68,39 +87,52 @@
 				<div>Strona główna</div>
 				<div><a href="sudokuSolve">Sudoku</a></div>
 				<div><a href="kamery.html">Kamery</a></div>
-				<div><a href="games.html">Gry</a></div>
+				<div><a href="webGames">Gry</a></div>
             </div>
 		</div>
-		<div id="content">
-			<div>
-				<h3>Inne strony:</h3>
-				<p><a href="sudokuSolve"><b>NOWE</b> link do strony rozwiązującej sudoku</a></p>
-				<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
-				<p><a href="games.html">link do strony z grami</a></p>
-				<p><a href="Szum.html">rolkaszumi dla taty</a></p>
-				<p><a href="Disco.html">link do DISCO</a></p>
-			</div>
-			<div>
-				<h2>SUDOKU</h2>
-				<p>
-					Masz sudoku do rozwiązania? Chcesz żeby ktoś rozwiązał je za Ciebie lub potrzebujesz pomocy? Jeśli tak to zapraszam do skorzystania
-					z <a href="sudokuSolve">tej strony</a>.<br/>Jak to działa?<br/>Najpierw program sprawdza możliwości w każdej komórce, a jeśli możliwa
-					jest tylko jedna opcja to ją wstawia. Potem sprawdza każdy rząd, kolumnę lub kwadrat, czy w jakimś którąś z liczb można wstawić w
-					tylko jednej komórce, jeśli tak to wstawia.<br/>A gdy już zabraknie możliwości to strzela, wstawiając losowe cyfry w losowe kolumny.
-				</p>
-				<h3>Kamery + wiatr</h3>
-				<p>
-					Zastanawiasz się jak wieje? Czy ktoś pływa na kicie lub windsurfingu? <a href="kamery.html">Ta strona</a> jest idealna dla Ciebie.
-				</p
-				<p>
-					<b>Gry</b><br/>Chciałbyś w coś zagrać? Już niedługo będziesz mieć <a href="games.html">tu</a> tą możliwość. Jak narazie możesz wypróbować wersję beta.
-				</p>
-			</div>
-		</div>
-		<div id="footer">
-			<div>
-				<img width="10%" src="Made with a bit of S.png"><br><br><br>
-			</div>
-		</div>
+        <div id="all">
+    		<div id="content">
+    			<div>
+    				<h2>Inne strony:</h2>
+    				<p><a href="sudokuSolve">link do strony rozwiązującej sudoku</a></p>
+    				<p><a href="webGames"><b>NOWE</b> link do strony z grami</a></p>
+    				<p><a href="kamery.html">link do strony z kamerami i wiatrem</a></p>
+    				<p><a href="Szum.html">rolkaszumi dla taty</a></p>
+    				<p><a href="Disco.html">link do DISCO</a></p>
+    			</div><br>
+    			<div>
+    				<a href="sudokuSolve"><h2>SUDOKU</h2></a>
+    				<p>
+    					Masz sudoku do rozwiązania? Chcesz żeby ktoś rozwiązał je za Ciebie lub potrzebujesz pomocy? Jeśli tak to zapraszam do skorzystania
+    					z <a href="sudokuSolve">tej strony</a>.<br/>Jak to działa?<br/>Najpierw program sprawdza możliwości w każdej komórce, a jeśli możliwa
+    					jest tylko jedna opcja to ją wstawia. Potem sprawdza każdy rząd, kolumnę lub kwadrat, czy w jakimś którąś z liczb można wstawić w
+    					tylko jednej komórce, jeśli tak to wstawia.<br/>A gdy już zabraknie możliwości to strzela, wstawiając losowe cyfry w losowe kolumny.
+    				</p>
+
+                    
+					<a href="webGames"><h2>Gry</h2></a>
+                    <a href="webGames/snakeGame"><h3>Snake</h3></a>
+    				<p>
+                        Zagraj w klasycznego węża!
+    				</p>
+                    <a href="webGames/lockedIn3Game"><h3>Snake</h3></a>
+    				<p>
+                        Wypróbuj też to!
+    				</p>
+
+                    <br>
+    				<a href="kamery.html"><h3>Kamery + wiatr</h3></a>
+    				<p>
+    					Zastanawiasz się jak wieje? Czy ktoś pływa na kicie lub windsurfingu? <a href="kamery.html">Ta strona</a> jest idealna dla Ciebie.
+                    </p>
+                    <br>
+    			</div>
+    		</div>
+    		<div id="footer">
+    			<div>
+    				<br><img width="10%" src="Made with a bit of S.png" alt="Made with a bit of S"><br><br><br>
+    			</div>
+    		</div>
+        </div>
 	</body>
 </html>
