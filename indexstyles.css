@@ -48,8 +48,11 @@ a {
 	border-radius: 10px;
 }
 #all {
-	margin-top: -25px;
-	padding-top: 10px;
+	border: 0px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px;
+	margin-top: -20px;
+	padding-top: 0px;
 	height: calc(100dvh - 65px);
 	overflow:auto;
 	width: 100%;
