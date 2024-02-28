@@ -17,6 +17,23 @@ a {
 	font-style: normal;
 	color: #043f7a;
 }
+button, input {
+	background-color: #1870c4;
+	font-family: Comfortaa;
+	color: white;
+	border-radius: 7px;
+	margin: 2px 5px 2px 5px;
+	padding: 5px;
+	border: #043f7a 4px solid;
+}
+button:hover, input:hover {
+	border: #28517a 4px solid;
+	background-color: #629dd3;
+}
+input::placeholder {
+	color:#428cd1
+}
+
 #header {
 	margin: 0px;
 	font-family: Comfortaa;
@@ -31,6 +48,7 @@ a {
 	#header > div {
 		margin: 0px;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 30px;
 		text-shadow: 2px 3px  rgb(65, 93, 121);
 	}
@@ -41,7 +59,7 @@ a {
 #content {
 	box-sizing: border-box;
 	width: 100%;
-	
+	padding-bottom: 20px;
 	background-color: #bbcdde;
 	box-shadow: 0px 0px 10px;
 	border: 0px;
