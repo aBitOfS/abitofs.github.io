@@ -27,27 +27,14 @@
 				}
 				return "";
 			}
-			function checkCookie() {
-				let user = getCookie("username");
-				if (user != "") {
-					document.body.innerHTML = user;
-					setCookie("username", "", 30);
-				} else {
-					user = prompt("Please enter your name:","");
-					if (user != "" && user != null) {
-					setCookie("username", user, 30);
-					}
-				}
-			}
 			zap = function() {
 				//document.cookie = `t=${document.getElementById("inptext").value}; expires=28 Feb 2024 12:00:00 UTC; path=/`;
 				setCookie("t",document.getElementById("inptext").value, 1)
 				//document.getElementById("war").textContent = "zapamietałem "+ `t=${document.getElementById("inptext").value}`;
 			}
 			nzap = function() {
-				checkCookie()
-				//document.cookie = "t=;";
-				//document.getElementById("war").textContent = "nie pamiętam";
+				document.cookie = "t=;";
+				document.getElementById("war").textContent = "nie pamiętam";
 			}
 			rea = function() {
 				//document.getElementById("war").textContent = decodeURIComponent(document.cookie);
@@ -55,7 +42,7 @@
 			}
 		</script>
 	</head>
-	<body>
+	<body onload="rea()">
 		<div id="header">
         	<div>
 				<div>Strona główna</div>
