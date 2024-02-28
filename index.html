@@ -5,6 +5,55 @@
 		<meta charset="utf-8"/>
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
 		<link rel="stylesheet" type="text/css" href="indexstyles.css">
+		<script>
+			function setCookie(cname, cvalue, exdays) {
+				const d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				let expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			function getCookie(cname) {
+				let name = cname + "=";
+				let decodedCookie = decodeURIComponent(document.cookie);
+				let ca = decodedCookie.split(';');
+				for(let i = 0; i <ca.length; i++) {
+					let c = ca[i];
+					while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+			function checkCookie() {
+				let user = getCookie("username");
+				if (user != "") {
+					document.body.innerHTML = user;
+					setCookie("username", "", 30);
+				} else {
+					user = prompt("Please enter your name:","");
+					if (user != "" && user != null) {
+					setCookie("username", user, 30);
+					}
+				}
+			}
+			zap = function() {
+				//document.cookie = `t=${document.getElementById("inptext").value}; expires=28 Feb 2024 12:00:00 UTC; path=/`;
+				setCookie("t",document.getElementById("inptext").value, 1)
+				//document.getElementById("war").textContent = "zapamietałem "+ `t=${document.getElementById("inptext").value}`;
+			}
+			nzap = function() {
+				checkCookie()
+				//document.cookie = "t=;";
+				//document.getElementById("war").textContent = "nie pamiętam";
+			}
+			rea = function() {
+				//document.getElementById("war").textContent = decodeURIComponent(document.cookie);
+				document.getElementById("war").textContent = getCookie("t");
+			}
+		</script>
 	</head>
 	<body>
 		<div id="header">
@@ -52,6 +101,13 @@
                     </p>
                     <br>
     			</div>
+				<div>
+					<h2>Test cookies</h2>
+					<p>UWAGA!!! To poniżej używa plików cookies</p>
+					<input id="inptext" placeholder="Co mam zapamiętać?"/>
+					<button onclick="zap()">Zapamiętaj!</button><button onclick="nzap()">Zapomnij o tym!</button>
+					<p>Aktualnie to <span id = "war"></span></p><button onclick="rea()">Odświerz</button>
+				</div>
     		</div>
     		<div id="footer">
     			<div>
@@ -61,3 +117,4 @@
         </div>
 	</body>
 </html>
+
