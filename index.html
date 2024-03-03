@@ -7,12 +7,13 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
 		<link rel="stylesheet" type="text/css" href="indexstyles.css">
 		<script>
-			/*function setCookie(cname, cvalue, exdays) {
-				const d = new Date();
-				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-				let expires = "expires="+d.toUTCString();
-				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-			}*/
+			var els = [];
+			function whenLoaded() {
+				rea();
+				els = document.getElementsByClassName("headerItem");
+				document.getElementById("headerShow").classList.toggle("headerHidden");
+				toggleHeader();
+			}
 			function getCookie(cname) {
 				let name = cname + "=";
 				let decodedCookie = decodeURIComponent(document.cookie);
@@ -30,7 +31,6 @@
 			}
 			zap = function() {
 				document.cookie = `t=${document.getElementById("inptext").value};`;
-				//setCookie("t",document.getElementById("inptext").value, 1)
 				rea();
 			}
 			nzap = function() {
@@ -41,15 +41,22 @@
 				//document.getElementById("war").textContent = decodeURIComponent(document.cookie);
 				document.getElementById("war").textContent = getCookie("t");
 			}
+			function toggleHeader() {
+				for (let i = 0; i < els.length; i++) {
+					els[i].classList.toggle("headerHidden");
+				}
+			}
 		</script>
 	</head>
-	<body onload="rea()">
+	<body onload="whenLoaded()">
 		<div id="header">
         	<div>
-				<div>Strona główna</div>
-				<div><a href="sudokuSolve">Sudoku</a></div>
-				<div><a href="kamery.html">Kamery</a></div>
-				<div><a href="webGames">Gry</a></div>
+				<div id="headerMain">Strona główna</div>
+				<div id="headerShow" class="headerItem" onclick="toggleHeader()">+</div>
+				<div id="headerHide" class="headerItem" onclick="toggleHeader()">-</div>
+				<a href="sudokuSolve" class="headerItem">Sudoku</a>
+				<a href="kamery.html" class="headerItem">Kamery</a>
+				<a href="webGames" class="headerItem">Gry</a>
             </div>
 		</div>
         <div id="all">
