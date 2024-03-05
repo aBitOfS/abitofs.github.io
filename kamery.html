@@ -28,8 +28,6 @@
 			}
         }
     </style>
-</head>
-<body>
     <script>
         function camChange(id, num, name) {
             document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
@@ -56,9 +54,11 @@
             if (getCookie("name1").length > 0)
                 camChange(1,getCookie("num1"),getCookie("name1"));
             if (getCookie("name2").length > 0)
-                camChange(1,getCookie("num2"),getCookie("name2"));
+                camChange(2,getCookie("num2"),getCookie("name2"));
         }
     </script>
+</head>
+<body onload="lastSetting()">
 	<div id="content">
     <div id="oneb">
         <button onclick="camChange(1, 7,'Chałupy')">Chałupy</button>
