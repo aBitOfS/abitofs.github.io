@@ -34,6 +34,29 @@
         function camChange(id, num, name) {
             document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
             document.getElementById(id == 1 ? "onet" : "twot").textContent = name + ":";
+            document.cookie = `num${id}=${num}`;
+            document.cookie = `name${id}=${name}`;
+        }
+		function getCookie(cname) {
+			let name = cname + "=";
+			let decodedCookie = decodeURIComponent(document.cookie);
+			let ca = decodedCookie.split(';');
+			for(let i = 0; i <ca.length; i++) {
+				let c = ca[i];
+				while (c.charAt(0) == ' ') {
+				    c = c.substring(1);
+				}
+		    	if (c.indexOf(name) == 0) {
+			    	return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+        function lastSetting() {
+            if (getCookie("name1").length > 0)
+                camChange(1,getCookie("num1"),getCookie("name1"));
+            if (getCookie("name2").length > 0)
+                camChange(1,getCookie("num2"),getCookie("name2"));
         }
     </script>
 	<div id="content">
