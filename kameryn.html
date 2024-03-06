@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kamery</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+		<link rel="stylesheet" type="text/css" href="kameryn.css">
+		<script>
+			var camers = [["Chałupy","https://player.nadmorski24.pl/_camera2.php?id=7"],
+							["Jastarnia","https://player.nadmorski24.pl/_camera2.php?id=20"],
+							["Jastarnia kemping","https://player.nadmorski24.pl/_camera2.php?id=83"],
+							["Jurata","https://player.nadmorski24.pl/_camera2.php?id=23"],
+							["Puck","https://player.nadmorski24.pl/_camera2.php?id=28"],
+							["Windy","https://embed.windy.com/embed2.html?lat=54.633&lon=18.509&detailLat=54.633&detailLon=18.509&width=&height=500&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"],
+							["Rewa","https://player.nadmorski24.pl/_camera2.php?id=106"]]; // index, nazwa, url
+			var viewedCameras = [];
+
+			function setCookie(cname, cvalue, exdays) {
+				const d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				let expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			function getCookie(cname) {
+				let name = cname + "=";
+				let decodedCookie = decodeURIComponent(document.cookie);
+				let ca = decodedCookie.split(';');
+				for(let i = 0; i <ca.length; i++) {
+					let c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+
+			function addPopupOpen() {
+				document.getElementById("addPopup").style.display = "block";
+			}
+			function addPopupClose() {
+				document.getElementById("addPopup").style.display = "none";
+				document.getElementById("nameInput").value = "";
+				document.getElementById("urlInput").value = "";
+			}
+			function addCamera() {
+				camers.push([document.getElementById("nameInput").value,document.getElementById("urlInput").value]);
+				addPopupClose();
+				camUpdate()
+			}
+			function camUpdate() {
+				var cont = "";
+				for (let i = 0; i < camers.length; i++) {
+					cont += `<div onmousedown="camlistClick(${i})">${camers[i][0]}</div>`;
+				}
+				document.getElementById("camList").innerHTML = cont;
+			}
+
+			function camViewUpdate() {
+				var cont = "";
+				for (let i = 0; i < viewedCameras.length; i++) {
+					cont += `<div>
+						<h2>${camers[viewedCameras[i]][0]}</h2>
+						<iframe src="${camers[viewedCameras[i]][1]}"></iframe>
+					</div>`;
+				}
+				document.getElementById("content").innerHTML = cont;
+			}
+
+			var tryb = 0;
+			var ind = 0;
+			function camlistClick(index) {
+				ind = index;
+				switch (tryb) {
+					case 0:
+						document.getElementById("follows").innerHTML = camers[index][0]; 
+						document.body.addEventListener("mousemove",follow);
+						document.body.addEventListener("mouseup",stopfollowing);
+						break;
+				}
+			}
+
+			function follow(event) {
+				var e = document.getElementById("follows")
+				e.style.left = (event.clientX-e.offsetWidth/2)+"px";
+				e.style.top = (event.clientY-e.offsetHeight/2)+"px";
+			}
+			function stopfollowing() {
+				document.body.removeEventListener("mousemove",follow);
+				document.body.removeEventListener("mouseup",stopfollowing);
+				var cont = document.getElementById("content");
+				var fol = document.getElementById("follows");
+				var x = fol.offsetLeft + fol.offsetWidth/2 - cont.offsetLeft;
+				var y = fol.offsetTop + fol.offsetHeight/2 - cont.offsetTop;
+				if (x < cont.offsetWidth/3 && x > 0) {
+					cont.innerHTML += `<div style="width: 49%; float: left">
+						<h2>${camers[ind][0]}</h2>
+						<iframe src="${camers[ind][1]}"></iframe>
+					</div>`;
+				}
+				else if (x > cont.offsetWidth * 2/3) {
+					cont.innerHTML += `<div style="width: 49%; float: right">
+						<h2>${camers[ind][0]}</h2>
+						<iframe src="${camers[ind][1]}"></iframe>
+					</div>`;
+				}
+				else {
+					cont.innerHTML += `<div>
+						<h2>${camers[ind][0]}</h2>
+						<iframe src="${camers[ind][1]}"></iframe>
+					</div>`;
+				}
+				document.getElementById("follows").style.left = "-1000px";
+			}
+
+			function onLoad() {
+				camUpdate();
+				camViewUpdate();
+			}
+		</script>
+	</head>
+	<body onload="onLoad()">
+		<div id="rightmenu">
+			<div id="controlls">
+				<div><a href="https://abitofs.github.io">Powrót</a></div>
+				<div onclick="addPopupOpen()">+</div>
+				<div onclick="tryb=1">edytuj</div>
+				<div>usuń</div>
+			</div>
+			<div id="camList"></div>
+		</div>
+		<div id="content">
+			
+		</div>
+		<div id="addPopup">
+			<div>
+				<h2>Dodaj kamerę / inny element</h2>
+				<p>Nazwa</p>
+				<input id="nameInput"/>
+				<p>URL</p>
+				<input id="urlInput"/>
+				<button onclick="addCamera()">Dodaj</button>
+				<button onclick="addPopupClose()">Anuluj</button>
+			</div>
+		</div>
+		<div id="follows"></div>
+	</body>
+</html>

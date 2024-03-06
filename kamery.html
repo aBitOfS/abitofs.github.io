@@ -29,11 +29,11 @@
         }
     </style>
     <script>
-        function camChange(id, num, name) {
-            document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
-            document.getElementById(id == 1 ? "onet" : "twot").textContent = name + ":";
-            document.cookie = `num${id}=${num}`;
-            document.cookie = `name${id}=${name}`;
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 		function getCookie(cname) {
 			let name = cname + "=";
@@ -50,6 +50,12 @@
 			}
 			return "";
 		}
+        function camChange(id, num, name) {
+            document.getElementById(id == 1 ? "one" : "two").src = "https://player.nadmorski24.pl/_camera2.php?id=" + num;
+            document.getElementById(id == 1 ? "onet" : "twot").textContent = name + ":";
+            setCookie(`num${id}`, num, 365);
+            setCookie(`name${id}`, name, 365);
+        }
         function lastSetting() {
             if (getCookie("name1").length > 0)
                 camChange(1,getCookie("num1"),getCookie("name1"));
