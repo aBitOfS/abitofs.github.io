@@ -85,11 +85,52 @@
 				}
 			}
 
+			function placingByMouse(x, cont) {
+				var start, end;
+				if (x < 0) { // kliknięcie - całość
+					start = 1;
+					end = 7;
+				}
+				else if (x < cont.offsetWidth/4) { // <1/4 - 1/3 lewo
+					start = 1;
+					end = 3;
+				}
+				else if (x < cont.offsetWidth*2/5) {
+					start = 1;
+					end = 4;
+				}
+				else if (x < cont.offsetWidth*3/5) {
+					start = 3;
+					end = 5;
+				}
+				else if (x < cont.offsetWidth*3/4) {
+					start = 4;
+					end = 7;
+				}
+				else {
+					start = 5;
+					end = 7;
+				}
+				return [start,end];
+			}
+			
 			function follow(event) {
-				var e = document.getElementById("follows")
+				var e = document.getElementById("follows");
 				e.style.left = (event.clientX-e.offsetWidth/2)+"px";
 				e.style.top = (event.clientY-e.offsetHeight/2)+"px";
+				
+				var cont = document.getElementById("content");
+				var vc = document.getElementById("virtualContent");
+				var x = event.clientX;
+				x -= cont.offsetLeft;
+				var pos = placingByMouse(x, cont);
+				pos[0]--;
+				pos[1]-= pos[0]+1;
+
+				vc.style.left = (cont.offsetLeft+pos[0]*(cont.offsetWidth-10)/6+5)+"px";
+				vc.style.width = (pos[1]*(cont.offsetWidth-10)/6)+"px";
 			}
+			
 			function stopfollowing() {
 				document.body.removeEventListener("mousemove",follow);
 				document.body.removeEventListener("mouseup",stopfollowing);
@@ -97,24 +138,15 @@
 				var fol = document.getElementById("follows");
 				var x = fol.offsetLeft + fol.offsetWidth/2 - cont.offsetLeft;
 				var y = fol.offsetTop + fol.offsetHeight/2 - cont.offsetTop;
-				if (x < cont.offsetWidth/3 && x > 0) {
-					cont.innerHTML += `<div style="width: 49%; float: left">
+				
+				document.getElementById("virtualContent").style.width = "0px";
+
+				var pos = placingByMouse(x,cont);
+
+				cont.innerHTML += `<div style="grid-column-start:${pos[0]}; grid-column-end:${pos[1]}">
 						<h2>${camers[ind][0]}</h2>
 						<iframe src="${camers[ind][1]}"></iframe>
 					</div>`;
-				}
-				else if (x > cont.offsetWidth * 2/3) {
-					cont.innerHTML += `<div style="width: 49%; float: right">
-						<h2>${camers[ind][0]}</h2>
-						<iframe src="${camers[ind][1]}"></iframe>
-					</div>`;
-				}
-				else {
-					cont.innerHTML += `<div>
-						<h2>${camers[ind][0]}</h2>
-						<iframe src="${camers[ind][1]}"></iframe>
-					</div>`;
-				}
 				document.getElementById("follows").style.left = "-1000px";
 			}
 
@@ -134,9 +166,8 @@
 			</div>
 			<div id="camList"></div>
 		</div>
-		<div id="content">
-			
-		</div>
+		<div id="content"></div>
+		<div id="virtualContent"></div>
 		<div id="addPopup">
 			<div>
 				<h2>Dodaj kamerę / inny element</h2>

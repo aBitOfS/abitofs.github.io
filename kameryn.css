@@ -2,6 +2,7 @@ body {
 	margin: 0px;
 	display: flex;
 	height: 100dvh;
+	user-select: none;
 }
 
 * {
@@ -62,6 +63,9 @@ body {
 	overflow: auto;
 	height: 100dvh;
 	padding: 5px;
+	display: grid;
+	grid-template-columns: repeat(6,1fr);
+	gap: 10px
 }
 #content div {
 	background-color: rgb(124, 167, 204);
@@ -88,4 +92,11 @@ body {
 	left: -1000px;
 	box-shadow: 2px 2px 5px black;
 	font-family: Comfortaa, Calibri, sans-serif;
+}
+#virtualContent {
+	top: 5px;
+	height: calc(100dvh - 10px);
+	position: absolute;
+	background-color: rgba(12, 71, 180, 0.521);
+	border-radius: 10px;
 }
