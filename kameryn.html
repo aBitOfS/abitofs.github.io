@@ -63,7 +63,7 @@
 			}
 
 			function camViewUpdate() {
-				setCookie("cVelem",getElementById("content").innerHTML, 365);
+				setCookie("cVelem",document.getElementById("content").innerHTML, 365);
 				var cont = "";
 				for (let i = 0; i < viewedCameras.length; i++) {
 					cont += `<div>
@@ -175,7 +175,7 @@
 			function onLoad() {
 				camUpdate();
 				camViewUpdate();
-				content.innerHTML = getCookie("cVelem");
+				document.getElementById("content").innerHTML = getCookie("cVelem");
 			}
 		</script>
 	</head>
