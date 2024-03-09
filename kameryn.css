@@ -80,6 +80,14 @@ body {
 	margin-bottom: 5px;
 	text-align: center;
 }
+#content button {
+	float: right;
+	background-color: rgba(0, 0, 0, 0);
+	border: 0px solid black;
+	color: white;
+	font-size: 30px;
+	margin-top: -40px;
+}
 #content iframe {
 	border: 0px solid white;
 	border-radius: 5px;

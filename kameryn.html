@@ -53,15 +53,17 @@
 				addPopupClose();
 				camUpdate()
 			}
+			
 			function camUpdate() {
 				var cont = "";
 				for (let i = 0; i < camers.length; i++) {
-					cont += `<div onmousedown="camlistClick(${i})">${camers[i][0]}</div>`;
+					cont += `<div onpointerdown="camlistClick(${i})">${camers[i][0]}</div>`;
 				}
 				document.getElementById("camList").innerHTML = cont;
 			}
 
 			function camViewUpdate() {
+				setCookie("cVelem",getElementById("content").innerHTML, 365);
 				var cont = "";
 				for (let i = 0; i < viewedCameras.length; i++) {
 					cont += `<div>
@@ -72,17 +74,19 @@
 				document.getElementById("content").innerHTML = cont;
 			}
 
-			var tryb = 0;
+			function changeMode(nmode) {
+				if (tryb === nmode)
+					tryb = 0;
+				else
+					tryb = nmode;
+			}
+
 			var ind = 0;
 			function camlistClick(index) {
 				ind = index;
-				switch (tryb) {
-					case 0:
-						document.getElementById("follows").innerHTML = camers[index][0]; 
-						document.body.addEventListener("mousemove",follow);
-						document.body.addEventListener("mouseup",stopfollowing);
-						break;
-				}
+				document.getElementById("follows").innerHTML = camers[index][0]; 
+				document.body.addEventListener("pointermove",follow);
+				document.body.addEventListener("pointerup",stopfollowing);
 			}
 
 			function placingByMouse(x, cont) {
@@ -132,8 +136,8 @@
 			}
 			
 			function stopfollowing() {
-				document.body.removeEventListener("mousemove",follow);
-				document.body.removeEventListener("mouseup",stopfollowing);
+				document.body.removeEventListener("pointermove",follow);
+				document.body.removeEventListener("pointerup",stopfollowing);
 				var cont = document.getElementById("content");
 				var fol = document.getElementById("follows");
 				var x = fol.offsetLeft + fol.offsetWidth/2 - cont.offsetLeft;
@@ -143,16 +147,35 @@
 
 				var pos = placingByMouse(x,cont);
 
-				cont.innerHTML += `<div style="grid-column-start:${pos[0]}; grid-column-end:${pos[1]}">
-						<h2>${camers[ind][0]}</h2>
-						<iframe src="${camers[ind][1]}"></iframe>
-					</div>`;
+				var nel = document.createElement("div");
+				nel.style = `grid-column-start:${pos[0]}; grid-column-end:${pos[1]}`;
+				nel.innerHTML = `<h2 onpointerdown="contentElementClick(${ind}, this)">${camers[ind][0]}</h2>
+						<button onclick="contentElementRemove(this)">x</button>
+						<iframe src="${camers[ind][1]}"></iframe>`;
+				cont.appendChild(nel);
 				document.getElementById("follows").style.left = "-1000px";
+			}
+
+			function contentElementClick(index, elem) {
+				ind = index;
+				elem.parentElement.remove();
+				document.getElementById("follows").innerHTML = camers[index][0]; 
+				document.body.addEventListener("pointermove",follow);
+				document.body.addEventListener("pointerup",stopfollowing);
+			}
+			
+			function contentElementRemove(elem) {
+				elem.parentElement.remove();
+			}
+
+			function clearContent() {
+				document.getElementById("content").innerHTML = "";
 			}
 
 			function onLoad() {
 				camUpdate();
 				camViewUpdate();
+				content.innerHTML = getCookie("cVelem");
 			}
 		</script>
 	</head>
@@ -161,8 +184,9 @@
 			<div id="controlls">
 				<div><a href="https://abitofs.github.io">Powrót</a></div>
 				<div onclick="addPopupOpen()">+</div>
-				<div onclick="tryb=1">edytuj</div>
-				<div>usuń</div>
+				<div onclick="changeMode(1)">edytuj</div>
+				<div onclick="changeMode(2)">usuń</div>
+				<div onclick="clearContent()">clear</div>
 			</div>
 			<div id="camList"></div>
 		</div>
@@ -170,7 +194,7 @@
 		<div id="virtualContent"></div>
 		<div id="addPopup">
 			<div>
-				<h2>Dodaj kamerę / inny element</h2>
+				<h2 >Dodaj kamerę / inny element</h2>
 				<p>Nazwa</p>
 				<input id="nameInput"/>
 				<p>URL</p>
