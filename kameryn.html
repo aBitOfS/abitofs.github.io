@@ -18,28 +18,6 @@
 							["Rewa","https://player.nadmorski24.pl/_camera2.php?id=106"]]; // index, nazwa, url
 			var viewedCameras = [];
 
-			function setCookie(cname, cvalue, exdays) {
-				const d = new Date();
-				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-				let expires = "expires="+d.toUTCString();
-				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-			}
-			function getCookie(cname) {
-				let name = cname + "=";
-				let decodedCookie = decodeURIComponent(document.cookie);
-				let ca = decodedCookie.split(';');
-				for(let i = 0; i <ca.length; i++) {
-					let c = ca[i];
-					while (c.charAt(0) == ' ') {
-						c = c.substring(1);
-					}
-					if (c.indexOf(name) == 0) {
-						return c.substring(name.length, c.length);
-					}
-				}
-				return "";
-			}
-
 			function addPopupOpen() {
 				document.getElementById("addPopup").style.display = "block";
 			}
@@ -63,7 +41,6 @@
 			}
 
 			function camViewUpdate() {
-				setCookie("cVelem",document.getElementById("content").innerHTML, 365);
 				var cont = "";
 				for (let i = 0; i < viewedCameras.length; i++) {
 					cont += `<div>
@@ -154,6 +131,7 @@
 						<iframe src="${camers[ind][1]}"></iframe>`;
 				cont.appendChild(nel);
 				document.getElementById("follows").style.left = "-1000px";
+				localStorage.setItem("camViewElem",document.getElementById("content").innerHTML);
 			}
 
 			function contentElementClick(index, elem) {
@@ -166,16 +144,18 @@
 			
 			function contentElementRemove(elem) {
 				elem.parentElement.remove();
+				localStorage.setItem("camViewElem",document.getElementById("content").innerHTML);
 			}
 
 			function clearContent() {
 				document.getElementById("content").innerHTML = "";
+				localStorage.setItem("camViewElem",document.getElementById("content").innerHTML);
 			}
 
 			function onLoad() {
 				camUpdate();
 				camViewUpdate();
-				document.getElementById("content").innerHTML = getCookie("cVelem");
+				document.getElementById("content").innerHTML = localStorage.getItem("camViewElem");
 			}
 		</script>
 	</head>
