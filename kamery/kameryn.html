@@ -38,6 +38,12 @@
 					cont += `<div onpointerdown="camlistClick(${i})">${camers[i][0]}</div>`;
 				}
 				document.getElementById("camList").innerHTML = cont;
+				// Pack camers
+				localStorage.setItem("camListLength",camers.length);
+				for (let i = 0; i < camers.length; i++) {
+					localStorage.setItem("camListName"+i,camers[i][0]);
+					localStorage.setItem("camListUrl"+i,camers[i][1]);
+				}
 			}
 
 			function camViewUpdate() {
@@ -113,8 +119,11 @@
 			}
 			
 			function stopfollowing() {
-				document.body.removeEventListener("pointermove",follow);
-				document.body.removeEventListener("pointerup",stopfollowing);
+				document.body.removeEventListener("mousemove",follow);
+				document.body.removeEventListener("touchmove",follow);
+				document.body.removeEventListener("mouseup",stopfollowing);
+				document.body.removeEventListener("touchend",stopfollowing);
+
 				var cont = document.getElementById("content");
 				var fol = document.getElementById("follows");
 				var x = fol.offsetLeft + fol.offsetWidth/2 - cont.offsetLeft;
@@ -137,9 +146,11 @@
 			function contentElementClick(index, elem) {
 				ind = index;
 				elem.parentElement.remove();
-				document.getElementById("follows").innerHTML = camers[index][0]; 
-				document.body.addEventListener("pointermove",follow);
-				document.body.addEventListener("pointerup",stopfollowing);
+				document.getElementById("follows").innerHTML = camers[index][0];
+				document.body.addEventListener("mousemove",follow);
+				document.body.addEventListener("touchmove",follow);
+				document.body.addEventListener("mouseup",stopfollowing);
+				document.body.addEventListener("touchend",stopfollowing);
 			}
 			
 			function contentElementRemove(elem) {
@@ -149,13 +160,23 @@
 
 			function clearContent() {
 				document.getElementById("content").innerHTML = "";
-				localStorage.setItem("camViewElem",document.getElementById("content").innerHTML);
+				localStorage.clear();
 			}
 
 			function onLoad() {
-				camUpdate();
-				camViewUpdate();
 				document.getElementById("content").innerHTML = localStorage.getItem("camViewElem");
+				// Unpack camers
+				let l = localStorage.getItem("camListLength")
+				if (l != null) {
+					console.log("camers unpacking",l)
+					camers = [];
+					l = Number(l);
+					for (let i = 0; i < l; i++) {
+						camers.push([localStorage.getItem("camListName"+i),localStorage.getItem("camListUrl"+i)]);
+					}
+				}
+				//camViewUpdate();
+				camUpdate();
 			}
 		</script>
 	</head>
