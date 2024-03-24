@@ -1,0 +1,78 @@
+body {
+	margin: 0px;
+	color: white;
+	background-image: url(https://cdn.pixabay.com/photo/2017/03/27/14/31/stars-2179083_1280.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;  
+	background-size: cover;
+	overflow: hidden;
+}
+body > * {
+	margin: 0px;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5 {
+	font-family: Comfortaa;
+}
+a {
+	text-decoration: none;
+	color: rgb(69, 159, 238);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+main > div {
+	align-self: center;
+	padding: 80px;
+	background-image: url(https://cdn.pixabay.com/photo/2017/09/21/07/57/satellite-2771043_1280.png);
+	background-repeat: no-repeat;
+	background-position: 50% -100%;
+	background-size: 100%;
+}
+main > div > * {
+	background-color: rgba(134, 134, 134, 0.623);
+}
+main > div input {
+	width: 100%;
+	border: 2px solid white;
+	background-color: rgba(134, 134, 134, 0.623);
+	color: white;
+	border-radius: 3px;
+	font-size: large;
+	font-family: Lexend;
+}
+
+@keyframes disapear {
+	0% {display: block; }
+	30% {display: block; }
+	65% {display: block; margin-top: -275px; margin-bottom: 0px;}
+	100% {display: block; margin-top: -550px; margin-bottom: 275px;}
+}
+.bad {
+	margin-right: 40%;
+	transition: margin-right 1s;
+	animation: disapear 2s linear;
+	display: none;
+}
+.bad, .bad * {
+	color: rgb(253, 107, 107);
+	border-color: rgb(253, 107, 107);
+}
+
+.good {
+	margin-left: 40%;
+	transition: margin-left 1s;
+	animation: disapear 2s linear;
+	display: none;
+}
+.good, .good * {
+	color: rgb(65, 153, 62);
+	border-color: rgb(65, 153, 62);
+}
