@@ -119,10 +119,8 @@
 			}
 			
 			function stopfollowing() {
-				document.body.removeEventListener("mousemove",follow);
-				document.body.removeEventListener("touchmove",follow);
-				document.body.removeEventListener("mouseup",stopfollowing);
-				document.body.removeEventListener("touchend",stopfollowing);
+				document.body.removeEventListener("pointermove",follow);
+				document.body.removeEventListener("pointerup",stopfollowing);
 
 				var cont = document.getElementById("content");
 				var fol = document.getElementById("follows");
@@ -147,10 +145,8 @@
 				ind = index;
 				elem.parentElement.remove();
 				document.getElementById("follows").innerHTML = camers[index][0];
-				document.body.addEventListener("mousemove",follow);
-				document.body.addEventListener("touchmove",follow);
-				document.body.addEventListener("mouseup",stopfollowing);
-				document.body.addEventListener("touchend",stopfollowing);
+				document.body.addEventListener("pointermove",follow);
+				document.body.addEventListener("pointerup",stopfollowing);
 			}
 			
 			function contentElementRemove(elem) {

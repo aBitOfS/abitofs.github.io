@@ -17,8 +17,24 @@
 			<h1><a href="https://abitofs.github.io">Back</a> Repair Quiz</h1>
 		</header>
 		<main>
-
+			
 		</main>
-		<img style="display: none;" src="https://cdn.pixabay.com/photo/2016/06/17/17/06/saturn-1463606_1280.jpg"/>
+		<div style="display: none;">
+			<div id="pqTemplate" class="pinquestion">
+				<h3>[Slowo] - [Znaczenie]</h3>
+				<input type="password">
+				<div>
+					<button onclick="repairQuiz.answer(0,this.parentElement.parentElement)">1 un-</button>
+					<button onclick="repairQuiz.answer(1,this.parentElement.parentElement)">2 dis-</button>
+					<button onclick="repairQuiz.answer(2,this.parentElement.parentElement)">3 in-</button>
+				</div>
+				<div>
+					<button onclick="repairQuiz.answer(3,this.parentElement.parentElement)">4 im-</button>
+					<button onclick="repairQuiz.answer(4,this.parentElement.parentElement)">5 il-</button>
+					<button onclick="repairQuiz.answer(5,this.parentElement.parentElement)">6 ir-</button>
+				</div>
+			</div>
+			<img src="https://cdn.pixabay.com/photo/2016/06/17/17/06/saturn-1463606_1280.jpg"/>
+		</div>
 	</body>
 </html>

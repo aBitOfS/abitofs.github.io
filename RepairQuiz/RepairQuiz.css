@@ -26,34 +26,43 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	/*flex-grow: 1;*/
 }
 
 main > div {
 	align-self: center;
 	padding: 80px;
+	height: 150px;
 	background-image: url(https://cdn.pixabay.com/photo/2017/09/21/07/57/satellite-2771043_1280.png);
 	background-repeat: no-repeat;
-	background-position: 50% -100%;
+	/*background-position: -50% 0%;*/
 	background-size: 100%;
 }
-main > div > * {
-	background-color: rgba(134, 134, 134, 0.623);
-}
-main > div input {
-	width: 100%;
-	border: 2px solid white;
-	background-color: rgba(134, 134, 134, 0.623);
+
+main button, main input {
 	color: white;
+	font-family: Lexend;
+	border: 2px solid white;
+	background-color: rgba(0,0,0,0);
 	border-radius: 3px;
 	font-size: large;
-	font-family: Lexend;
+	transition: transform 0.5s;
+}
+main button:hover {
+	background-color: rgba(12, 36, 143, 0.5);
+	transform: scale(1.2);
+}
+main > div input {
+	width: 97%;
 }
 
 @keyframes disapear {
 	0% {display: block; }
 	30% {display: block; }
-	65% {display: block; margin-top: -275px; margin-bottom: 0px;}
-	100% {display: block; margin-top: -550px; margin-bottom: 275px;}
+	/*65% {display: block; margin-top: -275px; margin-bottom: 0px;}
+	100% {display: block; margin-top: -550px; margin-bottom: 275px;}*/
+	65% {display: block; margin-top: -320px; margin-bottom: 0px;}
+	100% {display: block; margin-top: -630px; margin-bottom: 310px;}
 }
 .bad {
 	margin-right: 40%;
@@ -68,11 +77,27 @@ main > div input {
 
 .good {
 	margin-left: 40%;
-	transition: margin-left 1s;
+	transition: margin 1s;
 	animation: disapear 2s linear;
 	display: none;
 }
 .good, .good * {
 	color: rgb(65, 153, 62);
 	border-color: rgb(65, 153, 62);
+}
+
+.pinquestion {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 5px;
+}
+.pinquestion > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 100%;
+	gap: 10px;
+}
+.correct {
+	background-color: green;
 }

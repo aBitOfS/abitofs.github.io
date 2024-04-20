@@ -1,4 +1,4 @@
-class RepairQuiz {
+/*class RepairQuiz {
 	questionIndex = -1;
 	displayingQuesions = [];
 	nextQuestion() {
@@ -6,7 +6,7 @@ class RepairQuiz {
 			this.displayingQuesions.push(this.questionIndex);
 			let newChild = document.createElement("div");
 			newChild.innerHTML = `<h3>${this.quiz.questions[this.questionIndex][0]}<h3>
-			<input onkeydown="repairQuiz.submit(event,this,${this.questionIndex})"
+			<input onkeydown="repairQuiz.submit(event,this,${this.questionIndex})" onsubmit="repairQuiz.submit(event,this,${this.questionIndex})"
 			id="question${this.questionIndex}"/>`;
 			this.htmlmain.append(newChild);
 		}
@@ -47,4 +47,34 @@ class SampleQuiz {
 	]
 }
 
-repairQuiz = new RepairQuiz();
+repairQuiz = new RepairQuiz();*/
+
+class nRepairQuiz {
+	questions = [["capable",2],["usual",0],["willing",0],["logical",4],
+		["approve",1],["adequate",2],["responsible",5],["legal",4],
+		["probable",3],["mature",3],["safe",0]]
+	questionIndex = -1
+	start() {
+		this.qelem = document.getElementById("pqTemplate");
+		this.main = document.getElementsByTagName("main")[0];
+		this.nextQuestion();
+	}
+	nextQuestion() {
+		this.questionIndex++;
+		let nn = this.qelem.cloneNode(true);
+		nn.children[0].innerHTML = this.questions[this.questionIndex][0];
+		this.main.appendChild(nn);
+	}
+	answer(ans, elem) {
+		let correct = this.questions[this.questionIndex][1];
+		if (ans == correct)
+			elem.classList.add("good");
+		else
+			elem.classList.add("bad");
+		elem.children[2+correct/3].children[correct%3].classList.add("correct");
+		this.nextQuestion()
+		setTimeout(()=>{elem.remove()},1990)
+	}
+}
+
+repairQuiz = new nRepairQuiz();
