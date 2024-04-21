@@ -21,8 +21,8 @@
 		</main>
 		<div style="display: none;">
 			<div id="pqTemplate" class="pinquestion">
-				<h3>[Slowo] - [Znaczenie]</h3>
-				<input type="password">
+				<h3>[Slowo] - [Znaczenie]</h3><span></span>
+				<!--<input type="password">-->
 				<div>
 					<button onclick="repairQuiz.answer(0,this.parentElement.parentElement)">1 un-</button>
 					<button onclick="repairQuiz.answer(1,this.parentElement.parentElement)">2 dis-</button>
@@ -35,6 +35,12 @@
 				</div>
 			</div>
 			<img src="https://cdn.pixabay.com/photo/2016/06/17/17/06/saturn-1463606_1280.jpg"/>
+			<div id="finshMessage">
+				<h2>Gratulacje</h2>
+				<p>Ukończyłeś quiz z wynikiem:</p>
+				<h4><b><span>x</span></b>/<span>y</span> punktów</h4>
+				<p>Aby zagrać jeszcze raz odświerz stronę</p>
+			</div>
 		</div>
 	</body>
 </html>
