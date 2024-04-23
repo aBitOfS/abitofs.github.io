@@ -12,14 +12,14 @@
 
 		<!--<meta http-equiv="refresh" content="10" />-->
 	</head>
-	<body onload="repairQuiz.start()">
+	<body onload="repairQuiz.start()" onkeypress="repairQuiz.keyboard(event)">
 		<header>
 			<h1><a href="https://abitofs.github.io">Back</a> Repair Quiz</h1>
 		</header>
 		<main>
 			
 		</main>
-		<div style="display: none;">
+		<div style="display: none;" id="templateBox">
 			<div id="pqTemplate" class="pinquestion">
 				<h3>[Slowo] - [Znaczenie]</h3><span></span>
 				<!--<input type="password">-->
@@ -35,11 +35,11 @@
 				</div>
 			</div>
 			<img src="https://cdn.pixabay.com/photo/2016/06/17/17/06/saturn-1463606_1280.jpg"/>
-			<div id="finshMessage">
+			<div id="finishMessage">
 				<h2>Gratulacje</h2>
 				<p>Ukończyłeś quiz z wynikiem:</p>
 				<h4><b><span>x</span></b>/<span>y</span> punktów</h4>
-				<p>Aby zagrać jeszcze raz odświerz stronę</p>
+				<button onclick="repairQuiz.restart(this.parentElement)">Kontynuuj</button>
 			</div>
 		</div>
 	</body>

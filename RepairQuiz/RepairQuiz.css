@@ -65,26 +65,25 @@ main > div input {
 	65% {display: block; margin-top: -320px; margin-bottom: 0px;}
 	100% {display: block; margin-top: -630px; margin-bottom: 310px;}
 }
-.bad {
-	margin-right: 40%;
-	transition: margin-right 1s;
-	animation: disapear 2s linear;
-	display: none;
-}
+.disappear { animation: disapear 2s linear; }
 .bad, .bad * {
 	color: rgb(253, 107, 107);
 	border-color: rgb(253, 107, 107);
 }
 
-.good {
-	margin-left: 40%;
-	transition: margin 1s;
-	animation: disapear 2s linear;
-	display: none;
-}
 .good, .good * {
 	color: rgb(65, 153, 62);
 	border-color: rgb(65, 153, 62);
+}
+@media screen and (min-width: 700px) {
+	.good {
+		margin-left: 40%;
+		transition: margin-left 1s;
+	}
+	.bad {
+		margin-right: 40%;
+		transition: margin-right 1s;
+	}
 }
 
 .pinquestion {

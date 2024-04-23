@@ -50,48 +50,84 @@ class SampleQuiz {
 repairQuiz = new RepairQuiz();*/
 
 class nRepairQuiz {
-	questions = [["capable",2],["usual",0],["willing",0],["logical",4],
+	questions = []
+	secondRound = [["capable",2],["usual",0],["willing",0],["logical",4],
 		["approve",1],["adequate",2],["responsible",5],["legal",4],
 		["probable",3],["mature",3],["safe",0]]
-	questionIndex = -1
 	correctCount = 0
 	start() {
+		// Setup
 		this.qelem = document.getElementById("pqTemplate");
 		this.main = document.getElementsByTagName("main")[0];
+		// Sortowanie pytań
+		this.setupQuestions()
+	}
+	restart(elem) {
+		elem.classList.add("disappear")
+		setTimeout(() => {
+			let el = document.getElementById("finishMessage");
+			document.getElementById("templateBox").appendChild(el);
+			el.classList.remove("disappear");
+		},1950)
+
+		this.setupQuestions()
+	}
+	setupQuestions() {
+		this.correctCount = 0;
+		if (this.secondRound.length == 0)
+			location.reload()
+		while (this.secondRound.length > 0) {
+			let pos = Math.floor(Math.random() * this.secondRound.length);
+			this.questions.push(this.secondRound[pos]);
+			this.secondRound.splice(pos,1);
+		}
+
 		//this.field = QuestionField(this.questions[0][0])
 		this.nextQuestion();
 	}
 	nextQuestion() {
-		this.questionIndex++;
-		if (this.questionIndex < this.questions.length) {
-			//this.field.header = this.questions[this.questionIndex][0]
+		if (this.questions.length > 0) {
+			//this.field.header = this.questions[0][0]
 			let nn = this.qelem.cloneNode(true);
-			nn.children[0].innerHTML = this.questions[this.questionIndex][0];
+			nn.children[0].innerHTML = this.questions[0][0];
+			nn.classList.add("question")
 			this.main.appendChild(nn);
 		}
 		else {
-			let el = document.getElementById("finshMessage");
+			let el = document.getElementById("finishMessage");
 			let counters = el.getElementsByTagName("span");
 			counters[0].innerText = this.correctCount;
-			counters[1].innerText = this.questions.length;
+			counters[1].innerText = this.secondRound.length + this.correctCount;
 			this.main.append(el)
 		}
 	}
 	answer(ans, elem) {
-		let correct = this.questions[this.questionIndex][1];
+		if (!elem.classList.contains("question"))
+			return
+		let correct = this.questions[0][1];
 		if (ans == correct) {
 			elem.classList.add("good");
 			this.correctCount++;
 		}
-		else
+		else {
 			elem.classList.add("bad");
+			this.secondRound.push(this.questions[0])
+		}
 		elem.children[2+Math.trunc(correct/3)].children[correct%3].classList.add("correct");
+		elem.classList.add("disappear")
+		elem.classList.remove("question")
+		this.questions.shift()
 		this.nextQuestion()
 		setTimeout(()=>{elem.remove()},1950)
 	}
 	goodAnswer() {}
 	badAnswer() {
 
+	}
+	keyboard(event) {
+		if (!isNaN(event.key) && parseInt(event.key) > 0 && parseInt(event.key) < 7
+			&& document.getElementsByClassName("question").length > 0)
+			this.answer(parseInt(event.key)-1,document.getElementsByClassName("question")[0])
 	}
 }
 var QuestionField = function(question, answers, correct, parent) {

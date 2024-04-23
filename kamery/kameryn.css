@@ -21,7 +21,8 @@ body {
 #rightmenu > div {
 	padding: 5px;
 }
-#rightmenu > div > div, #follows {
+#rightmenu > div > *, #follows {
+	display: block;
 	background-color: rgb(17, 101, 211);
 	text-align: center;
 	padding: 5px;
@@ -29,10 +30,7 @@ body {
 	border-radius: 5px;
 	border: 3px solid white;
 	color: white;
-}
-#rightmenu a {
 	text-decoration: none;
-	color: white;
 }
 
 #addPopup {
