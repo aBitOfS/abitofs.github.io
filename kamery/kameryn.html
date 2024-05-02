@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 	<head>
 		<title>Kamery</title>
 		<meta charset="utf-8"/>
@@ -8,6 +8,7 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 		<link rel="stylesheet" type="text/css" href="kameryn.css">
+		<link rel="icon" type="image/svg" href="../logoL.svg"/>
 		<script src="kameryn.js"></script>
 	</head>
 	<body onload="onLoad()">
@@ -26,10 +27,8 @@
 		<div id="addPopup">
 			<div>
 				<h2 >Dodaj kamerę / inny element</h2>
-				<p>Nazwa</p>
-				<input id="nameInput"/>
-				<p>URL</p>
-				<input id="urlInput"/>
+				<label>Nazwa <input id="nameInput"/></label>
+				<label>URL <input id="urlInput"/></label>
 				<button onclick="addCamera()">Dodaj</button>
 				<button onclick="addPopupClose()">Anuluj</button>
 			</div>

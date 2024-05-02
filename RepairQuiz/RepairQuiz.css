@@ -58,12 +58,9 @@ main > div input {
 }
 
 @keyframes disapear {
-	0% {display: block; }
-	30% {display: block; }
-	/*65% {display: block; margin-top: -275px; margin-bottom: 0px;}
-	100% {display: block; margin-top: -550px; margin-bottom: 275px;}*/
-	65% {display: block; margin-top: -320px; margin-bottom: 0px;}
-	100% {display: block; margin-top: -630px; margin-bottom: 310px;}
+	30% {}
+	65% {margin-top: -320px; margin-bottom: 0px;}
+	100% {margin-top: -630px; margin-bottom: 310px;}
 }
 .disappear { animation: disapear 2s linear; }
 .bad, .bad * {

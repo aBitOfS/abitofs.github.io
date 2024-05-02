@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl-pl">
+<html lang="pl">
 	<head>
 		<title>Strona główna</title>
 		<meta charset="utf-8"/>
@@ -8,6 +8,7 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 		<link rel="stylesheet" type="text/css" href="indexstyles.css">
+		<link rel="icon" type="image/svg" href="logoL.svg"/>
 		<script>
 			var els = [];
 			function whenLoaded() {
@@ -53,7 +54,7 @@
 	<body onload="whenLoaded()">
 		<div id="header">
         	<div>
-				<div id="headerMain">Strona główna</div>
+				<div id="headerMain"><img src="logoL.svg" alt="Strona główna" height="40px"/></div>
 				<div id="headerShow" class="headerItem" onclick="toggleHeader()">+</div>
 				<div id="headerHide" class="headerItem" onclick="toggleHeader()">-</div>
 				<a href="sudokuSolve" class="headerItem">Sudoku</a>
