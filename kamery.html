@@ -6,23 +6,31 @@
     <title>Kamery + Wiatr</title>
     <link rel="icon" type="image/svg" href="logoL.svg"/>
     <style>
+        h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 5px 0px;
+        }
         button {
             font-size: 20px;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            padding: 2px;
             border: 2px solid blue;
             height: 50px;
             border-radius: 10px;
             background-color: #3682f5;
             flex-grow: 1;
+            flex-shrink: 1;
         }
-
+        iframe {
+            width: 100%;
+            aspect-ratio: 1920 / 1080;
+        }
         #oneb, #twob {
             display: flex;
-            gap: 15px;
+            gap: 5px;
             justify-content: stretch;
         }
-		#content {
-			width: 100%;
-		}
+
         @media screen and (min-width: 1500px) {
             #content {
 				width: 1500px;
@@ -67,7 +75,6 @@
     </script>
 </head>
 <body onload="lastSetting()">
-	<div id="content">
     <div id="oneb">
         <button onclick="camChange(1, 7,'Chałupy')">Chałupy</button>
         <button onclick="camChange(1, 20,'Jastarnia')">Jastarnia</button>
@@ -76,7 +83,7 @@
         <button onclick="camChange(1, 28,'Puck')">Puck</button>
     </div>
     <h2 id="onet">Jastarnia:</h2>
-    <iframe id="one" width="100%" height="750px" src="https://player.nadmorski24.pl/_camera2.php?id=20"></iframe>
+    <iframe id="one" src="https://player.nadmorski24.pl/_camera2.php?id=20"></iframe>
     <div id="twob">
         <button onclick="camChange(2, 7,'Chałupy')">Chałupy</button>
         <button onclick="camChange(2, 20,'Jastarnia')">Jastarnia</button>
@@ -85,11 +92,9 @@
         <button onclick="camChange(2, 28,'Puck')">Puck</button>
     </div>
     <h2 id="twot">Chałupy:</h2>
-    <iframe id="two" width="100%" height="750px" src="https://player.nadmorski24.pl/_camera2.php?id=7"></iframe>
-    <iframe width="100%" height="600px" src="https://embed.windy.com/embed2.html?lat=54.633&lon=18.509&detailLat=54.633&detailLon=18.509&width=&height=500&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"></iframe>
+    <iframe id="two" src="https://player.nadmorski24.pl/_camera2.php?id=7"></iframe>
+    <iframe src="https://embed.windy.com/embed2.html?lat=54.633&lon=18.509&detailLat=54.633&detailLon=18.509&width=&height=500&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"></iframe>
     <h2>Rewa:</h2>
-    <iframe width="100%" height="600px" src="https://player.nadmorski24.pl/_camera2.php?id=106"></iframe>
-<iframe width="100%" height="600px" src="https://g0.ipcamlive.com/player/player.php?alias=kamerarewa"></iframe>
-</div>
+    <iframe src="https://player.nadmorski24.pl/_camera2.php?id=106"></iframe>
 </body>
 </html>
