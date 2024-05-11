@@ -7,14 +7,15 @@
     <link rel="icon" type="image/svg" href="logoL.svg"/>
     <style>
         h2 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: Calibri, sans-serif;
             margin: 5px 0px;
+            text-align: center;
         }
         button {
             font-size: 20px;
             font-family: 'Trebuchet MS', Arial, sans-serif;
             padding: 2px;
-            border: 2px solid blue;
+            border: 2px solid rgb(0, 0, 0);
             height: 50px;
             border-radius: 10px;
             background-color: #3682f5;
@@ -24,6 +25,11 @@
         iframe {
             width: 100%;
             aspect-ratio: 1920 / 1080;
+            border: white 0px solid;
+            border-radius: 10px;
+        }
+        #windy {
+            height: 90dvh;
         }
         #oneb, #twob {
             display: flex;
@@ -93,7 +99,8 @@
     </div>
     <h2 id="twot">Chałupy:</h2>
     <iframe id="two" src="https://player.nadmorski24.pl/_camera2.php?id=7"></iframe>
-    <iframe src="https://embed.windy.com/embed2.html?lat=54.633&lon=18.509&detailLat=54.633&detailLon=18.509&width=&height=500&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"></iframe>
+    <h2>Windy:</h2>
+    <iframe id="windy" src="https://embed.windy.com/embed2.html?lat=54.633&lon=18.509&detailLat=54.633&detailLon=18.509&width=&height=500&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt%2Fh&metricTemp=%C2%B0C&radarRange=-1"></iframe>
     <h2>Rewa:</h2>
     <iframe src="https://player.nadmorski24.pl/_camera2.php?id=106"></iframe>
 </body>
