@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>aBitOfS - strona GŁÓWNA</title>
+		<link rel="icon" type="image/svg" href="https://raw.githubusercontent.com/aBitOfS/aBitOfS/main/abitofs.png"/>
+		<link rel="stylesheet" type="text/css" href="styles.css"/>
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono&family=Comfortaa&family=Lexend&family=Roboto" rel="stylesheet">
+		<script>
+			function languageChange() {
+				if (navigator.language == "pl" && confirm("Ta strona jest dostępna po polsku, chcesz ją otworzyć?"))
+					window.location.href = "https://abitofs.github.io/index/pl.html";
+			}
+		</script>
+	</head>
+	<body onload="languageChange()">
+		<nav>
+			<a href="../sudokuSolve">Sudoku solving</a>
+			<a href="../kamery.html">Cameras</a>
+			<a href="../webGames">Games in js</a>
+			<a href="../edu">EDU</a>
+			<a href="pl.html" id="langChange">Polska strona</a>
+		</nav>
+		<header>
+			<img src="..\media\zaLogiem.png" alt="graphic suming up my projects"/>
+			<div>
+				<h1>Hello,</h1>
+				<p>welcome to the home page</p>
+				<p>You'll find there description of most of my projects and links to try them.</p>
+				<h4>Scroll down to view more</h4>
+			</div>
+		</header>
+		<main>
+			<section>
+				<img src="..\media\sudokuPreview.png" alt="print screen from sudoku website"/>
+				<h2><a href="../sudokuSolve">Sudoku</a></h2>
+				<p>My first complete app with lots of functions:</p>
+				<ul>
+					<li>Sudoku solving</li>
+					<li>Comfortable environment for solving on your own</li>
+					<li>Generating tables</li>
+				</ul>
+				<p>In the future I consider adding:</p>
+				<ul>
+					<li>Different sizes/types of tables - now only standard 9x9</li>
+					<li>Better look on mobile devices - this version don't have compatibility with them</li>
+					<li>Ability to generate more tables at one time</li>
+				</ul>
+			</section>
+			<section>
+				<img src="..\media\eduPreview.jpeg" alt="print screen from edu website" />
+				<h2><a href="../edu">EDU</a></h2>
+				<p>Constntly under development educational webpage, which aim to cover issues of other similar websites:</p>
+				<ul>
+					<li>Price - free</li>
+					<li>
+						More ways of learning, e.g.:
+						<ul>
+							<li>Classic flash cards</li>
+							<li>Writing using best ideas from other webpages</li>
+							<li>Mixed</li>
+							<li>Map quiz</li>
+						</ul>
+					</li>
+					<li>More information in one quiz - not only term - definition pairs, but unlimited fields with custom names</li>
+					<li>Fully customisable</li>
+				</ul>
+			</section>
+			<section>
+				<h2><a href="../webGames">Games</a></h2>
+				<p>Consist of two projects:</p>
+				<ul>
+					<li>
+						<h3>Snake</h3>
+						<p>Standard snake game</p>
+					</li>
+					<li>
+						<h3>LockedIn3</h3>
+						<p>Not finished yet</p>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3><a href="../kamery.html">Cameras</a></h3>
+				<p>Site which help you to manage screen for viewing multiple videos/sites at once</p>
+			<!--</section>
+			<section>-->
+				<br><br><br>
+				<h3>The rest of projects:</h3>
+				<ul>
+					<li>
+						<h4><a href="../Disco.html">Disco</a></h4>
+						<p>Dynamicly changing colors on the phone's/computer's screen</p>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<aside>
+			<div>
+				<h2>Suggested:</h2>
+				<a href="https://github.com/aBitOfS">My GitHub profile</a>
+				<hr>
+				<a href="../sudokuSolve">Sudoku</a>
+				<a href="../edu">EDU</a>
+				<a href="../webGames">Games</a>
+				<a href="../kamery.html">Cameras</a>
+			</div>
+		</aside>
+		<footer>
+			<p>Creator: <a href="https://github.com/aBitOfS">aBitOfS</a></p>
+			<p>2024</p>
+		</footer>
+	</body>
+</html>

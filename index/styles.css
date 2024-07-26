@@ -1,0 +1,161 @@
+:root {
+	--color1: rgb(235, 179, 142);
+}
+
+* {
+	box-sizing: border-box;
+	transition: all 0.1s linear;
+}
+code {
+	font-family: "Kode Mono";
+}
+h1, h2, h3 {
+	font-family: Lexend;
+	border-bottom: 3px solid var(--color1);
+}
+hr {
+	border: 1px solid white;
+	margin:10px 10px;
+}
+a {
+	color: var(--color1);
+	text-decoration: none;
+}
+a:hover {
+	text-shadow: 2px 2px var(--color1);
+	color: white;
+}
+
+body {
+	font-family: Roboto;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(19, 19, 19);
+	color: white;
+	overflow-x: hidden;
+}
+nav {
+	background-color: black;
+	padding: 15px;
+	font-size: x-large;
+	font-family: Comfortaa;
+	grid-column: 1 / 5;
+	box-shadow: 0px 0px 10px white;
+}
+nav:hover {
+	box-shadow: 0px 0px 15px var(--color1);
+}
+nav > * {
+	padding: 0px 5px;
+	margin: 0px 5px;
+	border-radius: 10px;
+	display: inline-block;
+}
+#langChange {
+	float: right;
+}
+main {
+	grid-column: 2 / 3;
+}
+section {
+	margin: 10px;
+	box-sizing: border-box;
+	align-content: center;
+	min-height: 80dvh;
+}
+@media (prefers-reduced-motion: no-preference)
+{
+	section {
+		animation: sectionAnim ease-out;
+		animation-timeline: view(100% 0%);
+	}
+}
+section img {
+	width: 100%;
+	border-radius: 20px 20px 0px 0px;
+	margin-bottom: -20px;
+}
+header {
+	margin: 10px;
+	font-size: larger;
+	box-sizing: border-box;
+	min-height: 80dvh;
+	grid-column: 1 / 4;
+}
+header > div {
+	float: right;
+	width: 100%;
+	max-width: 1200px;
+}
+header img {
+	width: 100%;
+	max-width: 1300px;
+	border-radius: 20px 20px 0px 0px;
+	margin: 30px 0px -20px 0px;
+	float: right;
+}
+aside {
+	grid-column: 3 / 4;
+	margin: 10px;
+	margin-bottom: 30px;
+}
+aside > div > a {
+	font-size: larger;
+	display: block;
+	margin: 5px;
+	font-family: Comfortaa;
+}
+
+footer {
+	padding: 30px;
+	box-shadow: 0px 0px 10px white;
+	text-align: center;
+	grid-column: 1 / 5;
+	background-color: black;
+	font-family: "Kode Mono";
+	background-image: url("P:\\Strony internetowe\\abitofs.github.io\\media\\watermark.svg");
+}
+
+@media screen and (min-width: 600px) {
+	header img {
+		margin-bottom: -70px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	body {
+		display: grid;
+		grid-template-columns: 0px calc(100% - 250px) 250px 0px;
+	}
+	aside > div {
+		width: 230px;
+		animation: asideAnim linear;
+		animation-timeline: scroll();
+		margin-bottom: 10px;
+	}
+}
+
+
+
+@media screen and (min-width: 1200px) {
+	body {
+		grid-template-columns: 1fr 900px 300px 1fr;
+	}
+	aside > div {
+		width: 280px;
+	}
+}
+
+
+@keyframes sectionAnim {
+	0% { transform: translate(-100dvw);}
+	10% { transform: translate(-100dvw);}
+	100% { transform: translate(0px); }
+}
+@keyframes asideAnim {
+	0% { transform: translate(100dvw);}
+	5% { transform: translate(100dvw); position: relative;}
+	18% { transform: translate(0px); position: relative;}
+	35% { position: fixed; top: 10px}
+	100% { position: fixed; top: 10px}
+}
