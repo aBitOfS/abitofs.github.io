@@ -1,117 +1,118 @@
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<title>Strona główna</title>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
-    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
-    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-		<link rel="stylesheet" type="text/css" href="indexstyles.css">
-		<link rel="icon" type="image/svg" href="logoL.svg"/>
-		<meta http-equiv="refresh" content="0; url=http://abitofs.github.io/index/pl" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>aBitOfS - strona GŁÓWNA</title>
+		<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aBitOfS/aBitOfS/main/abitofs.png"/>
+		<link rel="stylesheet" type="text/css" href="styles.css"/>
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono&family=Comfortaa&family=Lexend&family=Roboto" rel="stylesheet">
 		<script>
-			var els = [];
-			function whenLoaded() {
-				rea();
-				els = document.getElementsByClassName("headerItem");
-				document.getElementById("headerShow").classList.toggle("headerHidden");
-				toggleHeader();
-			}
-			function getCookie(cname) {
-				let name = cname + "=";
-				let decodedCookie = decodeURIComponent(document.cookie);
-				let ca = decodedCookie.split(';');
-				for(let i = 0; i <ca.length; i++) {
-					let c = ca[i];
-					while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-					}
-					if (c.indexOf(name) == 0) {
-					return c.substring(name.length, c.length);
-					}
-				}
-				return "";
-			}
-			zap = function() {
-				document.cookie = `t=${document.getElementById("inptext").value};`;
-				rea();
-			}
-			nzap = function() {
-				document.cookie = "t=;";
-				document.getElementById("war").textContent = "nie pamiętam";
-			}
-			rea = function() {
-				//document.getElementById("war").textContent = decodeURIComponent(document.cookie);
-				document.getElementById("war").textContent = getCookie("t");
-			}
-			function toggleHeader() {
-				for (let i = 0; i < els.length; i++) {
-					els[i].classList.toggle("headerHidden");
-				}
+			function languageChange() {
+				if (!navigator.languages.includes("pl") && confirm("This site is avaliable in english, do you want to view it?"))
+					window.location.href = "https://abitofs.github.io/en.html";
 			}
 		</script>
 	</head>
-	<body onload="whenLoaded()">
-		<div id="header">
-        	<div>
-				<div id="headerMain"><img src="logoL.svg" alt="Strona główna" height="40px"/></div>
-				<div id="headerShow" class="headerItem" onclick="toggleHeader()">+</div>
-				<div id="headerHide" class="headerItem" onclick="toggleHeader()">-</div>
-				<a href="sudokuSolve" class="headerItem">Sudoku</a>
-				<a href="kamery/kameryn.html" class="headerItem">Kamery</a>
-				<a href="webGames" class="headerItem">Gry</a>
-				<a href="edu" class="headerItem"><img src="media/logoEdu.svg" alt="edu" height="40px"/> Edu</a>
-            </div>
-		</div>
-        <div id="all">
-    		<div id="content">
-    			<div>
-    				<h2>Inne strony:</h2>
-    				<p><a href="kamery/kameryn.html">NOWE kamery</a></p>
-    				<p><a href="Szum.html">rolkaszumi dla taty</a></p>
-    				<p><a href="Disco.html">link do DISCO</a></p>
-    				<p><a href="RepairQuiz/RepairQuiz.html">NOWE Repair Quiz</a></p>
-    			</div>
-    			<div>
-    				<a href="sudokuSolve"><h2>SUDOKU</h2></a>
-    				<p>
-    					Masz sudoku do rozwiązania? Chcesz żeby ktoś rozwiązał je za Ciebie lub potrzebujesz pomocy? Jeśli tak to zapraszam do skorzystania
-    					z <a href="sudokuSolve">tej strony</a>.<br/>Jak to działa?<br/>Najpierw program sprawdza możliwości w każdej komórce, a jeśli możliwa
-    					jest tylko jedna opcja to ją wstawia. Potem sprawdza każdy rząd, kolumnę lub kwadrat, czy w jakimś którąś z liczb można wstawić w
-    					tylko jednej komórce, jeśli tak to wstawia.<br/>A gdy już zabraknie możliwości to strzela, wstawiając losowe cyfry w losowe kolumny.
-    				</p>
-
-					<a href="webGames"><h2>Gry</h2></a>
-                    <a href="webGames/snakeGame"><h3>Snake</h3></a>
-    				<p>
-                        Zagraj w klasycznego węża!
-    				</p>
-                    <a href="webGames/lockedIn3Game"><h3>LOCKED in 3</h3></a>
-    				<p>
-                        Wypróbuj też to!
-    				</p>
-
-    				<a href="kamery/kameryn.html"><h3>Kamery + wiatr</h3></a>
-    				<p>
-    					Zastanawiasz się jak wieje? Czy ktoś pływa na kicie lub windsurfingu? <a href="kamery/kameryn.html">Ta strona</a> jest idealna dla Ciebie.
-                    </p>
-					<p><a href="kamery.html">Starsza wersja</a></p>
-    			</div>
-				<div>
-					<h2>Test cookies</h2>
-					<p>UWAGA!!! To poniżej używa plików cookies</p>
-					<input id="inptext" placeholder="Co mam zapamiętać?"/>
-					<button onclick="zap()">Zapamiętaj!</button><button onclick="nzap()">Zapomnij o tym!</button>
-					<p>Aktualnie to <span id = "war"></span></p><button onclick="rea()">Odświerz</button>
-				</div>
-    		</div>
-    		<div id="footer">
-    			<div>
-    				<img id="logo" src="media/Made with a bit of S.png" alt="Made with a bit of S"><br><br><br>
-    			</div>
-    		</div>
-        </div>
+	<body onload="languageChange()">
+		<nav>
+			<a href="sudokuSolve">Rozwiązywanie sudoku</a>
+			<a href="kamery.html">Podgląd kamer</a>
+			<a href="webGames">Gry w js</a>
+			<a href="edu">EDU</a>
+			<a href="en.html" id="langChange">English site</a>
+		</nav>
+		<header>
+			<img src="media\summaryLogo.png" alt="grafika podsumowująca moją twórczość"/>
+			<div>
+				<h1>Cześć,</h1>
+				<p>witaj na stronie głównej.</p>
+				<p>Znajdziesz tutaj opis większości moich projektów oraz linki do ich wypróbowania.</p>
+				<h4>Zapraszam</h4>
+			</div>
+		</header>
+		<main>
+			<section>
+				<img src="media\sudokuPreview.png" alt="zrzut ekranu ze strony sudoku"/>
+				<h2><a href="sudokuSolve">Sudoku</a></h2>
+				<p>Moja pierwsza kompletna aplikacja, posiada wiele możliwości:</p>
+				<ul>
+					<li>Rozwiązywanie sudoku</li>
+					<li>Przyjazne środowisko do własnego rozwiązywania</li>
+					<li>Generowanie sudoku</li>
+				</ul>
+				<p>W przyszłości rozważam także dodanie:</p>
+				<ul>
+					<li>Różnych rozmiarów/rodzajów sudoku - na razie dostępne jest tylko standardowe 9x9</li>
+					<li>Lepszy wygląd na urządzeniach mobilnych - ten nie jest w ogóle do tego przystosowany</li>
+					<li>Możliwość generowania większej ilości łamigówek na raz</li>
+				</ul>
+			</section>
+			<section>
+				<img src="media\eduPreview.jpeg" alt="zrzut ekranu ze strony edu" />
+				<h2><a href="edu">EDU</a></h2>
+				<p>Ciągle rozwijana strona do nauki, ma na celu naprawić wady innych narzędzi tego typu:</p>
+				<ul>
+					<li>Cena - bezpłatnie</li>
+					<li>
+						Więcej możliwości nauki, m.in.:
+						<ul>
+							<li>Klasyczne fiszki</li>
+							<li>Pisanie, wykorzystujące najlepsze pomysły z innych serwisów</li>
+							<li>Mieszane</li>
+							<li>Quiz na mapie</li>
+						</ul>
+					</li>
+					<li>Więcej informacji w jednym quizie - nie tylko pojęcie - definicja, lecz bez limitu, dowolne nazwy</li>
+					<li>Dopasowane pod siebie</li>
+				</ul>
+			</section>
+			<section>
+				<h2><a href="webGames">Gry</a></h2>
+				<p>Składają się na razie z dwóch projektów:</p>
+				<ul>
+					<li>
+						<h3>Węża</h3>
+						<p>Standardowa gra snake</p>
+					</li>
+					<li>
+						<h3>LockedIn3</h3>
+						<p>Jeszcze nie ukończona</p>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3><a href="kamery.html">Kamery</a></h3>
+				<p>Strona, dzięki której można zorganizować ekran pod oglądanie wielu filmów/innych materiałów na raz</p>
+			<!--</section>
+			<section>-->
+				<br><br><br>
+				<h3>Pozostałe projekty:</h3>
+				<ul>
+					<li>
+						<h4><a href="Disco.html">Disco</a></h4>
+						<p>Zmienne kolory na ekranie komputera/telefonu</p>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<aside>
+			<div>
+				<h2>Warto zobaczyć:</h2>
+				<a href="https://github.com/aBitOfS">Mój profil GitHub</a>
+				<hr>
+				<a href="sudokuSolve">Sudoku</a>
+				<a href="edu">EDU</a>
+				<a href="webGames">Gry</a>
+				<a href="kamery.html">Kamery</a>
+			</div>
+		</aside>
+		<footer>
+			<p>Twórca: <a href="https://github.com/aBitOfS">aBitOfS</a></p>
+			<p>2024</p>
+		</footer>
 	</body>
 </html>
-
