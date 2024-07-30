@@ -10,23 +10,32 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono&family=Comfortaa&family=Lexend&family=Roboto" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script>
 			function languageChange() {
 				if (!navigator.languages.includes("pl") && confirm("This site is avaliable in english, do you want to view it?"))
 					window.location.href = "https://abitofs.github.io/en.html";
 			}
+			function toggleHeader() {
+				$(".headerItem, .headerControls").toggleClass("hidden");
+			}
 		</script>
 	</head>
 	<body onload="languageChange()">
 		<nav>
-			<a href="sudokuSolve">Rozwiązywanie sudoku</a>
-			<a href="kamery.html">Podgląd kamer</a>
-			<a href="webGames">Gry w js</a>
-			<a href="edu">EDU</a>
-			<a href="en.html" id="langChange">English site</a>
+			<a class="headerControls" onclick="toggleHeader()">Strona Główna</a>
+			<a class="headerControls hidden" onclick="toggleHeader()">Zwiń</a>
+			<a href="sudokuSolve" class="headerItem hidden">Rozwiązywanie sudoku</a>
+			<a href="kamery.html" class="headerItem hidden">Podgląd kamer</a>
+			<a href="webGames" class="headerItem hidden">Gry w js</a>
+			<a href="edu" class="headerItem hidden">EDU</a>
+			<a href="en.html" id="langChange" class="headerItem hidden">English site</a>
 		</nav>
 		<header>
-			<img src="media\summaryLogo.png" alt="grafika podsumowująca moją twórczość"/>
+			<picture>
+				<source media="(min-width:650px)" srcset="media\index\Powitanie.svg">
+				<img src="media\index\PowitanieMini.svg" alt="grafika podsumowująca moją twórczość"/>
+			</picture>
 			<div>
 				<h1>Cześć,</h1>
 				<p>witaj na stronie głównej.</p>
@@ -36,7 +45,7 @@
 		</header>
 		<main>
 			<section>
-				<img src="media\sudokuPreview.png" alt="zrzut ekranu ze strony sudoku"/>
+				<img src="media\index\sudokuPreview.png" alt="zrzut ekranu ze strony sudoku"/>
 				<h2><a href="sudokuSolve">Sudoku</a></h2>
 				<p>Moja pierwsza kompletna aplikacja, posiada wiele możliwości:</p>
 				<ul>
@@ -52,7 +61,7 @@
 				</ul>
 			</section>
 			<section>
-				<img src="media\eduPreview.jpeg" alt="zrzut ekranu ze strony edu" />
+				<img src="media\index\eduPreview.jpeg" alt="zrzut ekranu ze strony edu" />
 				<h2><a href="edu">EDU</a></h2>
 				<p>Ciągle rozwijana strona do nauki, ma na celu naprawić wady innych narzędzi tego typu:</p>
 				<ul>
@@ -71,7 +80,7 @@
 				</ul>
 			</section>
 			<section>
-				<img src="media\gamesPreview.jpeg" alt="zrzut ekranu ze strony z grami"/>
+				<img src="media\index\gamesPreview.jpeg" alt="zrzut ekranu ze strony z grami"/>
 				<h2><a href="webGames">Gry</a></h2>
 				<p>Składają się na razie z dwóch projektów:</p>
 				<ul>

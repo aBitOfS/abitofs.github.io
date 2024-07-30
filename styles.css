@@ -25,6 +25,9 @@ a:hover {
 	text-shadow: 2px 2px var(--color1);
 	color: white;
 }
+.hidden {
+	display: none !important;
+}
 
 body {
 	font-family: Roboto;
@@ -34,6 +37,7 @@ body {
 	color: white;
 	overflow-x: hidden;
 }
+
 nav {
 	background-color: black;
 	padding: 15px;
@@ -49,15 +53,21 @@ nav > * {
 	padding: 0px 5px;
 	margin: 0px 5px;
 	border-radius: 10px;
-	display: inline-block;
+	display: block;
 }
-#langChange {
-	float: right;
+.headerItem {
+	margin: 15px;
 }
+.headerControls {
+	text-align: center;
+}
+
 main {
 	grid-column: 2 / 3;
+	float: right;
 }
 section {
+	grid-column: 2 / 3;
 	margin: 10px;
 	box-sizing: border-box;
 	align-content: center;
@@ -65,10 +75,10 @@ section {
 }
 @media (prefers-reduced-motion: no-preference)
 {
-	section {
+	/*section {
 		animation: sectionAnim ease-out;
 		animation-timeline: view(100% 0%);
-	}
+	}*/
 }
 section img {
 	width: 100%;
@@ -79,8 +89,8 @@ header {
 	margin: 10px;
 	font-size: larger;
 	box-sizing: border-box;
-	min-height: 80dvh;
 	grid-column: 1 / 4;
+	min-height: 80dvh;
 }
 header > div {
 	float: right;
@@ -91,7 +101,7 @@ header img {
 	width: 100%;
 	max-width: 1300px;
 	border-radius: 20px 20px 0px 0px;
-	margin: 30px 0px -20px 0px;
+	margin: 30px 0px -70px 0px;
 	float: right;
 }
 aside {
@@ -116,9 +126,16 @@ footer {
 	background-image: url("P:\\Strony internetowe\\abitofs.github.io\\media\\watermark.svg");
 }
 
-@media screen and (min-width: 600px) {
-	header img {
-		margin-bottom: -70px;
+@media screen and (min-width: 900px) {
+	.headerItem {
+		display: inline-block !important;
+		margin: 0px;
+	}
+	.headerControls {
+		display: none !important;
+	}
+	#langChange {
+		float: right;
 	}
 }
 
@@ -134,8 +151,6 @@ footer {
 		margin-bottom: 10px;
 	}
 }
-
-
 
 @media screen and (min-width: 1200px) {
 	body {

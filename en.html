@@ -10,23 +10,32 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono&family=Comfortaa&family=Lexend&family=Roboto" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script>
 			function languageChange() {
 				if (navigator.language == "pl" && confirm("Ta strona jest dostępna po polsku, chcesz ją otworzyć?"))
 					window.location.href = "https://abitofs.github.io/";
 			}
+			function toggleHeader() {
+				$(".headerItem, .headerControls").toggleClass("hidden");
+			}
 		</script>
 	</head>
 	<body onload="languageChange()">
 		<nav>
-			<a href="sudokuSolve">Sudoku solving</a>
-			<a href="kamery.html">Cameras</a>
-			<a href="webGames">Games in js</a>
-			<a href="edu">EDU</a>
-			<a href="/" id="langChange">Polska strona</a>
+			<a class="headerControls" onclick="toggleHeader()">Main page</a>
+			<a class="headerControls hidden" onclick="toggleHeader()">Hide</a>
+			<a href="sudokuSolve" class="headerItem hidden">Sudoku solving</a>
+			<a href="kamery.html" class="headerItem hidden">Cameras</a>
+			<a href="webGames" class="headerItem hidden">Games in js</a>
+			<a href="edu" class="headerItem hidden">EDU</a>
+			<a href="/" id="langChange" class="headerItem hidden">Polska strona</a>
 		</nav>
 		<header>
-			<img src="media\summaryLogo.png" alt="graphic suming up my projects"/>
+			<picture>
+				<source media="(min-width:650px)" srcset="media\index\Powitanie.svg">
+				<img src="media\index\PowitanieMini.svg" alt="grafika podsumowująca moją twórczość"/>
+			</picture>
 			<div>
 				<h1>Hello,</h1>
 				<p>welcome to the home page</p>
@@ -36,7 +45,7 @@
 		</header>
 		<main>
 			<section>
-				<img src="media\sudokuPreview.png" alt="print screen from sudoku website"/>
+				<img src="media\index\sudokuPreview.png" alt="print screen from sudoku website"/>
 				<h2><a href="sudokuSolve">Sudoku</a></h2>
 				<p>My first complete app with lots of functions:</p>
 				<ul>
@@ -52,7 +61,7 @@
 				</ul>
 			</section>
 			<section>
-				<img src="media\eduPreview.jpeg" alt="print screen from edu website" />
+				<img src="media\index\eduPreview.jpeg" alt="print screen from edu website" />
 				<h2><a href="edu">EDU</a></h2>
 				<p>Constntly under development educational webpage, which aim to cover issues of other similar websites:</p>
 				<ul>
@@ -71,7 +80,7 @@
 				</ul>
 			</section>
 			<section>
-				<img src="media\gamesPreview.jpeg" alt="print screen from games website"/>
+				<img src="media\index\gamesPreview.jpeg" alt="print screen from games website"/>
 				<h2><a href="webGames">Games</a></h2>
 				<p>Consist of two projects:</p>
 				<ul>
