@@ -124,6 +124,10 @@ footer {
 	background-color: black;
 	font-family: "Kode Mono";
 	background-image: url("media\\watermark.svg");
+	font-size: xx-large;
+}
+footer img {
+	max-width: 30rem;
 }
 
 @media screen and (min-width: 900px) {
