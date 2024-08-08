@@ -117,18 +117,25 @@ aside > div > a {
 }
 
 footer {
-	padding: 30px;
+	padding: 40px 0px 0px 0px;
 	box-shadow: 0px 0px 10px white;
 	text-align: center;
 	grid-column: 1 / 5;
 	background-color: black;
 	font-family: "Kode Mono";
 	background-image: url("media\\watermark.svg");
+	background-size: 100px;
+	animation: moving_background 10s infinite linear;
 	font-size: xx-large;
 }
 footer img {
 	max-width: 30rem;
 	width: 100%;
+}
+
+@keyframes moving_background
+{
+	100% {background-position: 100px 200px;}
 }
 
 @media screen and (min-width: 900px) {
