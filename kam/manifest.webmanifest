@@ -2,11 +2,24 @@
 	"name": "Kamery + Wiatr",
 	"short_name": "Kamery",
 	"description":"Podgląd kamer z nadmorski24.pl",
-	"start_url": "./kam/",
+	"start_url": ".",
 	"icons":[
 		{
 			"src":"https://raw.githubusercontent.com/aBitOfS/aBitOfS/main/abitofs.png",
-			"type":"image/png"
+			"type":"image/png",
+			"sizes":"144x144"
+		}
+	],
+	"screenshots": [
+		{
+		 "src": "screenshot_narrow.jpeg",
+		  "type": "image/jpeg",
+		  "form_factor": "narrow"
+		},
+		{
+		 "src": "screenshot_wide.jpeg",
+		  "type": "image/jpeg",
+		  "form_factor": "wide"
 		}
 	],
 	"display": "standalone",
