@@ -71,7 +71,7 @@ section {
 	margin: 10px;
 	box-sizing: border-box;
 	align-content: center;
-	min-height: 80dvh;
+	min-height: 80svh;
 }
 @media (prefers-reduced-motion: no-preference)
 {
@@ -90,7 +90,7 @@ header {
 	font-size: larger;
 	box-sizing: border-box;
 	grid-column: 1 / 4;
-	min-height: 80dvh;
+	min-height: 80svh;
 }
 header > div {
 	float: right;
@@ -175,14 +175,14 @@ footer img {
 
 
 @keyframes sectionAnim {
-	0% { transform: translate(-100dvw);}
-	10% { transform: translate(-100dvw);}
-	100% { transform: translate(0px); }
+	0% { transform: translate(-100vw); opacity: 0.1;}
+	10% { transform: translate(-100vw); opacity: 0.1;}
+	100% { transform: translate(0vw); opacity: 1;}
 }
 @keyframes asideAnim {
-	0% { transform: translate(100dvw);}
-	5% { transform: translate(100dvw); position: relative;}
-	18% { transform: translate(0px); position: relative;}
+	0% { transform: translate(100vw);}
+	5% { transform: translate(100vw); position: relative;}
+	18% { transform: translate(0vw); position: relative;}
 	35% { position: fixed; top: 10px}
 	100% { position: fixed; top: 10px}
 }
